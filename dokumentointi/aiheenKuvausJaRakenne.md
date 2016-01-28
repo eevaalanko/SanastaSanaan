@@ -22,3 +22,6 @@
 ##Käyttöliittymä
 *Pelin graafinen käyttöliittymä toteutetaan java swingillä.*
 
+##Luokkakaavio
+![Alt text](luokkakaavio.jpg)
+
