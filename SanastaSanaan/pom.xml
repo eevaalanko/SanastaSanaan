@@ -17,6 +17,13 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.eevaalanko.sanastasanaan</groupId>
+            <artifactId>SanastaSanaan</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>test</scope>
+            <type>jar</type>
+        </dependency>
     </dependencies>
 
     <build>
@@ -24,8 +31,8 @@
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
                 <version>3.3</version>
             </plugin>
@@ -36,10 +43,12 @@
                 <configuration>
                     <targetClasses>
                         <param>com.eevaalanko.sanastasanaan.logiikka.*</param>
+                        <param>com.eevaalanko.sanastasanaan.tietovarasto.*</param>
                         <param>com.eevaalanko.sanastasanaan.gui.*</param>
                     </targetClasses>
                     <targetTests>
                         <param>com.eevaalanko.sanastasanaan.logiikka.*</param>
+                        <param>com.eevaalanko.sanastasanaan.tietovarasto.*</param>
                         <param>com.eevaalanko.sanastasanaan.gui.*</param>
                     </targetTests>
                 </configuration>
