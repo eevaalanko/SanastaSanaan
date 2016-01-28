@@ -3,5 +3,5 @@
 *Sanasta sanaan on sanapeli, jossa muodostetaan mahdollisimman monta sanaa avainsanan kirjaimista.*
 
 
- - [aiheen kuvaus](dokumentaatio/aiheenKuvausJaRakenne.md)
- - [tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
+ - [aiheen kuvaus](dokumentointi/aiheenKuvausJaRakenne.md)
+ - [tuntikirjanpito](dokumentointi/tuntikirjanpito.md)
