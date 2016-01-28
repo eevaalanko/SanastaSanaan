@@ -16,7 +16,7 @@
 :clock10: *2 tuntia*
 
 ##28.1.2016
-- dokumenttien tyylittely markdownilla
+- dokumenttien muokkaus ja tyylittely markdownilla
 - luokkakaavion teko
 - projektin koodailua
 
