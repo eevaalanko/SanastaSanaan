@@ -1,6 +1,6 @@
 # SanastaSanaan, Ohjelmoinnin harjoitustyö, JavaLabra2016-3
 
-*sanapeli, jossa muodostetaan mahdollisimman monta sanaa avainsanan kirjaimista*
+*Sanasta sanaan on sanapeli, jossa muodostetaan mahdollisimman monta sanaa avainsanan kirjaimista.*
 
 
  - [aiheen kuvaus](dokumentaatio/aiheenKuvausJaRakenne.md)
