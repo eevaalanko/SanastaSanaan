@@ -1,4 +1,7 @@
-# SanastaSanaan
-Ohjelmoinnin harjoitustyö, JavaLabra2016-3
+# SanastaSanaan, Ohjelmoinnin harjoitustyö, JavaLabra2016-3
 
- [aiheen kuvaus](dokumentaatio/aiheenKuvausJaMääritelmä.md)
+*sanapeli, jossa muodostetaan mahdollisimman monta sanaa avainsanan kirjaimista*
+
+
+ - [aiheen kuvaus](dokumentaatio/aiheenKuvausJaRakenne.md)
+ - [tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
