@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.eevaalanko.sanastasanasaan.gui;
+package com.eevaalanko.sanastasanaan.gui;
 
 import com.eevaalanko.sanastasanaan.tietovarasto.Sanavarasto;
 import java.awt.event.*;
@@ -39,16 +39,17 @@ public final class SanastaSanaanGui extends JFrame {
     private final JPanel paKolmas = new JPanel(new FlowLayout(FlowLayout.LEFT));
     private final JPanel paVika = new JPanel(new FlowLayout(FlowLayout.LEFT));
     private final JPanel paPohjaVasen = new JPanel(new GridLayout(3, 1)); // 4 iv 1
-    private final JPanel paPohjaOikea = new JPanel(new GridLayout(1, 0)); // todo: tähän timer ja vastatut sanat-palkki
+    private final JPanel paPohjaOikea = new JPanel(new GridLayout(1, 0)); 
     private final JPanel paAlusta = new JPanel(new GridLayout(0, 2));
 
-    // saraketta
     private final JButton btAloita = new JButton("Aloita peli.");
-    private final JButton btVastaa = new JButton("Vastaa");
+    private final JButton btLisaaSana = new JButton("Lisää sana");
     private final JButton btInfo = new JButton("INFO");
     private final JLabel jlPisteet = new JLabel("Amat victoria curam.");
     private final JLabel jlEka = new JLabel("Valitse sana:            ");
+    
     private final Object[] avainlista;
+    
     private final JComboBox cbValinta;
     private final JFormattedTextField tfSana;
 
@@ -73,7 +74,7 @@ public final class SanastaSanaanGui extends JFrame {
         paEka.add(btAloita);
 
         paToka.add(tfSana);
-        paToka.add(btVastaa);
+        paToka.add(btLisaaSana);
 
         paVika.add(jlPisteet);
         paVika.add(btInfo);
@@ -89,7 +90,7 @@ public final class SanastaSanaanGui extends JFrame {
         paKolmas.setBackground(cKolmas);
         paVika.setBackground(cNeljas);
         cbValinta.setBackground(cToka);
-        btVastaa.setBackground(cEka);
+        btLisaaSana.setBackground(cEka);
         btInfo.setBackground(cViides);
 
         paAlusta.add(paPohjaVasen);
@@ -99,7 +100,7 @@ public final class SanastaSanaanGui extends JFrame {
         this.setSize(620, 350);
         
         btAloita.addActionListener(new AlsAjastin());
-        btVastaa.addActionListener(new AlsTarkista());
+        btLisaaSana.addActionListener(new AlsTarkista());
         btInfo.addActionListener(new AlsInfo());
 
     }
@@ -119,15 +120,14 @@ public final class SanastaSanaanGui extends JFrame {
         public void actionPerformed(ActionEvent e) {
             ajastin.startTimer();
         }
-
-        class AlsVastaukset implements ActionListener {
+    }
+            class AlsVastaukset implements ActionListener {
 
             @Override
             public void actionPerformed(ActionEvent e) {
 
             }
         }
-    }
         class AlsInfo implements ActionListener {
 
             @Override
@@ -140,7 +140,6 @@ public final class SanastaSanaanGui extends JFrame {
         }
     
         public static void main(String[] args) throws IOException {
-
             SanastaSanaanGui akkuna = new SanastaSanaanGui();
             akkuna.setVisible(true);
 

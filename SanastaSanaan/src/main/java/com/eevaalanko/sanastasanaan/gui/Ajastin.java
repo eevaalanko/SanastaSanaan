@@ -1,4 +1,4 @@
-package com.eevaalanko.sanastasanasaan.gui;
+package com.eevaalanko.sanastasanaan.gui;
 
 
 import java.awt.Dimension;
