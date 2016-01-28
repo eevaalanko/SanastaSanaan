@@ -1,4 +1,9 @@
-Aihe: Harjoitustyön aiheena on yksinkertainen sanapeli nimeltä sanasta sanaan. Siinä pitemmän sanan kirjaimista muodostetaan pienempiä sanoja. Pisteitä saa tavuista/snaojen määrästä.
+#Aiheen kuvaus ja rakenne
+
+
+##Aihe
+
+Harjoitustyön aiheena on yksinkertainen sanapeli nimeltä sanasta sanaan. Siinä pitemmän sanan kirjaimista muodostetaan pienempiä sanoja. Pisteitä saa tavuista/snaojen määrästä.
 
 Käyttäjät: Pelaaja
 
