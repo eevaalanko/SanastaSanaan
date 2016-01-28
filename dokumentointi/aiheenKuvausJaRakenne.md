@@ -6,7 +6,7 @@
 *Harjoitustyön aiheena on yksinkertainen sanapeli nimeltä sanasta sanaan. Siinä pitemmän alkusanan kirjaimista muodostetaan mahdollisimman monta perusmuodossa olevaa suomenkielistä sanaa. Erisnimet ja yhdyssanat eivät ole sallittuja. Pisteitä saa 1/sana.*
 
 ##Käyttäjät
-###*Pelaaja*
+####Pelaaja
 - Syöttää tietonsa/kirjautuu sisään login-painikkeesta (ei vielä varma toteutuuko, riippuu ajasta)
 - Klikkaa peliohjeen auki info-painikkeesta
 - Valitsee valikosta sanan klikkaamalla, jolloin aika alkaa juosta
@@ -14,7 +14,7 @@
 - Katsoo tuloksensa pisteruudusta, kun aika loppuu
 - Katselee tuloksia top ten- taulukosta sivupalkissa (ei varma toteutuuko)
 
-###*Admin*
+####Admin
 - lisää/muokkaa/poistaa alkusanoja
 - lisää/muokkaa/poistaa alkusanojen sanastoa
 - lisää/muokkaa/poistaa käyttäjiä (ei varma toteutuuko)
