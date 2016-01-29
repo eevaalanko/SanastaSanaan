@@ -5,6 +5,7 @@
  */
 package com.eevaalanko.sanastasanaan.tietovarasto;
 
+import com.eevaalanko.sanastasanaan.logiikka.Sanakirja;
 import java.util.ArrayList;
 
 /**

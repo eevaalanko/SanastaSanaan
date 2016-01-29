@@ -5,7 +5,7 @@
  */
 package com.eevaalanko.sanastasanaan.logiikka;
 
-import com.eevaalanko.sanastasanaan.tietovarasto.Sanakirja;
+
 import com.eevaalanko.sanastasanaan.tietovarasto.Sanavarasto;
 import java.util.ArrayList;
 import org.junit.After;
