@@ -18,7 +18,6 @@ public class Sanakirja {
 
     public Sanakirja() {
         sanasto = new HashMap<>();
-
     }
 
     public void lisaaSanalista(String listattava, ArrayList lista) {
@@ -30,11 +29,15 @@ public class Sanakirja {
     }
 
     public ArrayList annaSanalista(String alkusana) {
-        ArrayList lista = sanasto.get(alkusana);
+        ArrayList lista = sanasto.get(alkusana);    
+        if(!sanasto.containsKey(alkusana)){
+            return null;
+        }
         return lista;
     }
-    public Object[] annaAvainsanat(){
-        Object[] avainlista = sanasto.keySet().toArray();
+
+    public ArrayList annaAvainsanat() {
+        ArrayList avainlista = (ArrayList) sanasto.keySet();
         return avainlista;
     }
 

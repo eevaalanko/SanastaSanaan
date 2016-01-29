@@ -16,6 +16,7 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 
@@ -39,7 +40,7 @@ public final class SanastaSanaanGui extends JFrame {
     private final JPanel paKolmas = new JPanel(new FlowLayout(FlowLayout.LEFT));
     private final JPanel paVika = new JPanel(new FlowLayout(FlowLayout.LEFT));
     private final JPanel paPohjaVasen = new JPanel(new GridLayout(3, 1)); // 4 iv 1
-    private final JPanel paPohjaOikea = new JPanel(new GridLayout(1, 0)); 
+    private final JPanel paPohjaOikea = new JPanel(new GridLayout(1, 0));
     private final JPanel paAlusta = new JPanel(new GridLayout(0, 2));
 
     private final JButton btAloita = new JButton("Aloita peli.");
@@ -47,9 +48,9 @@ public final class SanastaSanaanGui extends JFrame {
     private final JButton btInfo = new JButton("INFO");
     private final JLabel jlPisteet = new JLabel("Amat victoria curam.");
     private final JLabel jlEka = new JLabel("Valitse sana:            ");
-    
-    private final Object[] avainlista;
-    
+
+    private final ArrayList avainlista;
+
     private final JComboBox cbValinta;
     private final JFormattedTextField tfSana;
 
@@ -59,7 +60,8 @@ public final class SanastaSanaanGui extends JFrame {
         this.tfSana = new JFormattedTextField("                                 ");
 
         this.avainlista = varasto.sanakirja.annaAvainsanat();
-        this.cbValinta = new JComboBox(avainlista);
+        Object o[] = (Object[]) (Object) avainlista;
+        this.cbValinta = new JComboBox(o);
         this.tfSana.setMinimumSize(null);
         this.setSize(200, 200);
         this.setTitle("Sanasta sanaan");
@@ -98,7 +100,7 @@ public final class SanastaSanaanGui extends JFrame {
 
         this.add(paAlusta);
         this.setSize(620, 350);
-        
+
         btAloita.addActionListener(new AlsAjastin());
         btLisaaSana.addActionListener(new AlsTarkista());
         btInfo.addActionListener(new AlsInfo());
@@ -121,28 +123,30 @@ public final class SanastaSanaanGui extends JFrame {
             ajastin.startTimer();
         }
     }
-            class AlsVastaukset implements ActionListener {
 
-            @Override
-            public void actionPerformed(ActionEvent e) {
+    class AlsVastaukset implements ActionListener {
 
-            }
-        }
-        class AlsInfo implements ActionListener {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String teksti = "Muodosta mahdollisimman monta sanaa avainsanan kirjaimista ennen kuin aika loppuu.\n"
-                        + "Mitä enemmän sanoja, sen enemmän pisteitä.\n";
-                JOptionPane.showMessageDialog(null, teksti, "Sanasta sanaan-peliohjeet", JOptionPane.INFORMATION_MESSAGE);
-
-            }
-        }
-    
-        public static void main(String[] args) throws IOException {
-            SanastaSanaanGui akkuna = new SanastaSanaanGui();
-            akkuna.setVisible(true);
+        @Override
+        public void actionPerformed(ActionEvent e) {
 
         }
+    }
+
+    class AlsInfo implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            String teksti = "Muodosta mahdollisimman monta sanaa avainsanan kirjaimista ennen kuin aika loppuu.\n"
+                    + "Mitä enemmän sanoja, sen enemmän pisteitä.\n";
+            JOptionPane.showMessageDialog(null, teksti, "Sanasta sanaan-peliohjeet", JOptionPane.INFORMATION_MESSAGE);
+
+        }
+    }
+
+    public static void main(String[] args) throws IOException {
+        SanastaSanaanGui akkuna = new SanastaSanaanGui();
+        akkuna.setVisible(true);
 
     }
+
+}

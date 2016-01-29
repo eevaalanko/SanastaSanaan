@@ -22,44 +22,29 @@ public class SanastaSanaanGuiTest {
     public SanastaSanaanGuiTest() {
     }
     
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
-
-    /**
-     * Test of asetteleKomponentit method, of class SanastaSanaanGui.
-     */
-    @Test
-    public void testAsetteleKomponentit() throws IOException {
-        System.out.println("asetteleKomponentit");
-        SanastaSanaanGui instance = new SanastaSanaanGui();
-        instance.asetteleKomponentit();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+    //todo: testit guihin
+//    /**
+//     * Test of asetteleKomponentit method, of class SanastaSanaanGui.
+//     */
+//    @Test
+//    public void testAsetteleKomponentit() throws IOException {
+//        System.out.println("asetteleKomponentit");
+//        SanastaSanaanGui instance = new SanastaSanaanGui();
+//        instance.asetteleKomponentit();
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
 
     /**
      * Test of main method, of class SanastaSanaanGui.
      */
-    @Test
-    public void testMain() throws Exception {
-        System.out.println("main");
-        String[] args = null;
-        SanastaSanaanGui.main(args);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+//    @Test
+//    public void testMain() throws Exception {
+//        System.out.println("main");
+//        String[] args = null;
+//        SanastaSanaanGui.main(args);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
     
 }

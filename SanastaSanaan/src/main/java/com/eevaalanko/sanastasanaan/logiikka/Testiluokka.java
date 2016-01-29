@@ -15,6 +15,7 @@ import java.util.TimerTask;
  * @author Eeva
  */
 public class Testiluokka {
+    //vain omaan kayttoon todo: lisaa .gitignoreen
 
     Sanavarasto varasto = new Sanavarasto();
 
@@ -30,10 +31,10 @@ public class Testiluokka {
 
     public static void main(String[] args) {
         Sanavarasto varasto = new Sanavarasto();
-        System.out.println("" + varasto.sanakirja.annaSanalista("sanapeli"));
-        System.out.println("koe");
-        Testiluokka testi = new Testiluokka();
-        boolean tarkistaSana = testi.tarkistaSana("sanapeli", "peli");
-        System.out.println(tarkistaSana);
+//        System.out.println("" + varasto.sanakirja.annaSanalista("sanapeli"));
+//        System.out.println("koe");
+//        System.out.println(tarkistaSana);
+//        HyvaksytytSanat hs = new HyvaksytytSanat();
+//        System.out.println( hs.tarkistaSana("sanapeli", "peli"));
     }
 }
