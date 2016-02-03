@@ -8,6 +8,7 @@ package com.eevaalanko.sanastasanaan.tietovarasto;
 import java.util.ArrayList;
 import java.util.Arrays;
 import static java.util.Arrays.asList;
+import java.util.Collection;
 import java.util.HashMap;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -76,7 +77,7 @@ public class SanakirjaTest {
      */
     public void testAnnaAvainsanat() {
         varasto.sanakirja.lisaaSanalista("avain", lista);
-        ArrayList avainlista = varasto.sanakirja.annaAvainsanat();
+        Collection avainlista = varasto.sanakirja.annaAvainsanat();
         boolean samat = false;
         if (avainlista.contains("avain")) {
             samat = true;

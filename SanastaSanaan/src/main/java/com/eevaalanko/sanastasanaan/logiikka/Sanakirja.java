@@ -6,6 +6,7 @@
 package com.eevaalanko.sanastasanaan.logiikka;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 
 /**
@@ -29,15 +30,20 @@ public class Sanakirja {
     }
 
     public ArrayList annaSanalista(String alkusana) {
-        ArrayList lista = sanasto.get(alkusana);    
-        if(!sanasto.containsKey(alkusana)){
+        ArrayList lista = sanasto.get(alkusana);
+        if (!sanasto.containsKey(alkusana)) {
             return null;
         }
         return lista;
     }
 
-    public ArrayList annaAvainsanat() {
-        ArrayList avainlista = (ArrayList) sanasto.keySet();
+    public int laskeSanalista(String alkusana) {
+        ArrayList lista = sanasto.get(alkusana);
+        return lista.size();
+    }
+
+    public Collection annaAvainsanat() {
+        Collection avainlista = sanasto.keySet();
         return avainlista;
     }
 

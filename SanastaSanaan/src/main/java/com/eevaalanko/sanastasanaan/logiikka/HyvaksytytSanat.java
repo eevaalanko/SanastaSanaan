@@ -45,6 +45,10 @@ public class HyvaksytytSanat {
         return false;
     }
     
+    public String toString(){
+        return this.hyvaksytyt.toString();
+    }
+    
     public int laskeSanat(){
         return this.hyvaksytyt.size();        
     }

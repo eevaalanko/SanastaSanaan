@@ -25,8 +25,9 @@ public class Sanavarasto {
         testi.add("ei");
         testi.add("se");
         testi.add("sei");
+        testi.add("setti");
         testi.add("itse");
-        this.sanakirja.lisaaSanalista("testi", testi);
+        this.sanakirja.lisaaSanalista("TESTI", testi);
 
         ArrayList<String> sanapeliLista = new ArrayList<>();
         sanapeliLista.add("sana");
@@ -34,6 +35,7 @@ public class Sanavarasto {
         sanapeliLista.add("saali");
         sanapeliLista.add("sali");
         sanapeliLista.add("salpa");
+        sanapeliLista.add("sei");
         sanapeliLista.add("aie");
         sanapeliLista.add("ane");
         sanapeliLista.add("ase");
@@ -45,7 +47,37 @@ public class Sanavarasto {
         sanapeliLista.add("ei");
         sanapeliLista.add("lapa");
         sanapeliLista.add("lei");
-        this.sanakirja.lisaaSanalista("sanapeli", sanapeliLista);
+        this.sanakirja.lisaaSanalista("SANAPELI", sanapeliLista);
+        
+        ArrayList<String> kapistely = new ArrayList<>();
+        kapistely.add("käpy");
+        kapistely.add("käly");
+        kapistely.add("käsi");
+        kapistely.add("käet");
+        kapistely.add("kylä");
+        kapistely.add("kypsä");
+        kapistely.add("äly");
+        kapistely.add("äes");
+        kapistely.add("piste");
+        kapistely.add("pistely");
+        kapistely.add("itse");
+        kapistely.add("isä");
+        kapistely.add("säie");
+        kapistely.add("säkit");
+        kapistely.add("se");
+        kapistely.add("sekit");
+        kapistely.add("sepitys");
+        kapistely.add("sei");
+        kapistely.add("te");
+        kapistely.add("tie");
+        kapistely.add("eli");
+        kapistely.add("ei");
+        kapistely.add("lisä");
+        kapistely.add("yli");
+        kapistely.add("ylitse");
+        kapistely.add("yskä");
+        kapistely.add("ylkä");
+        this.sanakirja.lisaaSanalista("KÄPISTELY", kapistely);
 
     }
 
@@ -53,6 +85,4 @@ public class Sanavarasto {
      *
      * @return
      */
-  
-
 }
