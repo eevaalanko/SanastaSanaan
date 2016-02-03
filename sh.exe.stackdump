@@ -1,9 +1,0 @@
-MSYS-1.0.12 Build:2012-07-05 14:56
-Exception: STATUS_ACCESS_VIOLATION at eip=68027968
-eax=00000001 ebx=0069FA4C ecx=680A4C5C edx=00030000 esi=0069FA50 edi=00000000
-ebp=0069FA24 esp=0069F8AC program=C:\RailsInstaller\Git\bin\sh.exe
-cs=0023 ds=002B es=002B fs=0053 gs=002B ss=002B
-Stack trace:
-Frame     Function  Args
-0069FA24  68027968  (00000206, 00746BDC, 00000000, 75D2E388)
-End of stack trace
