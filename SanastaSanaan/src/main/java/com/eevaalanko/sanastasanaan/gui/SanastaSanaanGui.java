@@ -60,7 +60,6 @@ public final class SanastaSanaanGui extends JFrame {
     public long startTime = -1;
     public long duration = 100000;
 
-//    private String avainsana;
     public SanastaSanaanGui() throws IOException {
         Collection avainlista = varasto.sanakirja.annaAvainsanat();
         Object o[] = avainlista.toArray(new Object[avainlista.size()]);
