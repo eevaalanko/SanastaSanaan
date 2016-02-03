@@ -22,3 +22,18 @@
 
 :clock10: *5 tuntia*
 
+##29.1.2016
+- testien teko
+- projektin muokkailu
+- pitin generointi
+
+:clock10: *4 tuntia*
+
+##04.2.2016
+- projektin muokkailu
+
+:clock10: *4 tuntia*
+
+
+
+
