@@ -48,7 +48,7 @@ public class Sanavarasto {
         sanapeliLista.add("lapa");
         sanapeliLista.add("lei");
         this.sanakirja.lisaaSanalista("SANAPELI", sanapeliLista);
-        
+
         ArrayList<String> kapistely = new ArrayList<>();
         kapistely.add("käpy");
         kapistely.add("käly");
@@ -62,11 +62,11 @@ public class Sanavarasto {
         kapistely.add("pistely");
         kapistely.add("itse");
         kapistely.add("isä");
+        kapistely.add("iskeä");
         kapistely.add("säie");
         kapistely.add("säkit");
         kapistely.add("se");
         kapistely.add("sekit");
-        kapistely.add("sepitys");
         kapistely.add("sei");
         kapistely.add("te");
         kapistely.add("tie");
