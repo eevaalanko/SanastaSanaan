@@ -13,9 +13,8 @@ import java.util.ArrayList;
  * @author Eeva
  */
 public class HyvaksytytSanat {
-    
+
     Sanavarasto varasto = new Sanavarasto();
-    
 
     public ArrayList hyvaksytyt;
 
@@ -31,7 +30,7 @@ public class HyvaksytytSanat {
     public boolean lisaaSana(String alkusana, String tarkistettava) {
         boolean tarkistaSana = this.tarkistaSana(alkusana, tarkistettava);
         boolean onJoLisatty = this.onJoLisatty(tarkistettava);
-        if (tarkistaSana&&!onJoLisatty) {
+        if (tarkistaSana && !onJoLisatty) {
             hyvaksytyt.add(tarkistettava);
             return true;
         }
@@ -39,18 +38,21 @@ public class HyvaksytytSanat {
     }
 
     public boolean onJoLisatty(String tarkistettava) {
-        if(this.hyvaksytyt.contains(tarkistettava)) {
+        if (this.hyvaksytyt.contains(tarkistettava)) {
             return true;
         }
         return false;
     }
-    
-    public String toString(){
+
+    public String toString() {
         return this.hyvaksytyt.toString();
     }
-    
-    public int laskeSanat(){
-        return this.hyvaksytyt.size();        
+
+    public int laskeSanat() {
+        if (hyvaksytyt.isEmpty()) {
+            return 0;
+        }
+        return this.hyvaksytyt.size();
     }
 
 }

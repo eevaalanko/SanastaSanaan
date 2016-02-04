@@ -54,6 +54,7 @@ public class Sanavarasto {
         kapistely.add("käly");
         kapistely.add("käsi");
         kapistely.add("käet");
+        kapistely.add("kipeä");
         kapistely.add("kylä");
         kapistely.add("kypsä");
         kapistely.add("äly");
