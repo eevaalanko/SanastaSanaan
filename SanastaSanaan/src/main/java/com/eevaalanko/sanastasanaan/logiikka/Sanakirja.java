@@ -15,6 +15,7 @@ import java.util.HashMap;
  */
 public class Sanakirja {
 
+ 
     public HashMap< String, ArrayList> sanasto;
 
     public Sanakirja() {
@@ -30,7 +31,8 @@ public class Sanakirja {
     }
 
     public ArrayList annaSanalista(String alkusana) {
-        ArrayList lista = sanasto.get(alkusana);
+        ArrayList<String> lista = new ArrayList<>();
+        lista = sanasto.get(alkusana);
         if (!sanasto.containsKey(alkusana)) {
             return null;
         }

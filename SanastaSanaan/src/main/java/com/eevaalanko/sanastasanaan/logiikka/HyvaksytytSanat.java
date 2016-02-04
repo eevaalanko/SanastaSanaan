@@ -16,14 +16,14 @@ public class HyvaksytytSanat {
 
     Sanavarasto varasto = new Sanavarasto();
 
-    public ArrayList hyvaksytyt;
+    public ArrayList<String> hyvaksytyt;
 
     public HyvaksytytSanat() {
         hyvaksytyt = new ArrayList<>();
     }
 
     public boolean tarkistaSana(String alkusana, String tarkistettava) {
-        ArrayList lista = varasto.sanakirja.annaSanalista(alkusana);
+        ArrayList <String>lista = varasto.sanakirja.annaSanalista(alkusana);
         return lista.contains(tarkistettava);
     }
 
@@ -38,12 +38,10 @@ public class HyvaksytytSanat {
     }
 
     public boolean onJoLisatty(String tarkistettava) {
-        if (this.hyvaksytyt.contains(tarkistettava)) {
-            return true;
-        }
-        return false;
+        return this.hyvaksytyt.contains(tarkistettava);
     }
 
+    @Override
     public String toString() {
         return this.hyvaksytyt.toString();
     }
@@ -53,6 +51,10 @@ public class HyvaksytytSanat {
             return 0;
         }
         return this.hyvaksytyt.size();
+    }
+    public void poistaSana(String poistettava){
+        if(this.hyvaksytyt.contains(poistettava)){
+        this.hyvaksytyt.remove(poistettava);}
     }
 
 }

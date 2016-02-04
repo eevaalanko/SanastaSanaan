@@ -5,7 +5,6 @@
  */
 package com.eevaalanko.sanastasanaan.logiikka;
 
-
 import com.eevaalanko.sanastasanaan.tietovarasto.Sanavarasto;
 import java.util.ArrayList;
 import org.junit.After;
@@ -60,24 +59,31 @@ public class HyvaksytytSanatTest {
         assertEquals(onJoLisatty, true);
     }
 
+    public void testLisaaOikeaSana() {
+        boolean lisaaSana = instance.lisaaSana("test", "testisana1");
+        assertEquals(lisaaSana, true);
+    }
+
+    public void testLisaaVaaraSana() {
+        boolean lisaaSana = instance.lisaaSana("test", "testisana3");
+        assertEquals(lisaaSana, false);
+    }
+
+    public void testLisaaLisattySana() {
+        boolean lisaaSanaUudestaan = instance.lisaaSana("test", "testisana1");
+        assertEquals(lisaaSanaUudestaan, false);
+
+    }
+
+    public void testLaskeSanatJosTyhja() {
+        instance.poistaSana("testisana1");
+        int maara = instance.laskeSanat();
+        assertEquals(maara, 0);
+    }
+
     public void testLaskeSanat() {
         int maara = instance.laskeSanat();
         assertEquals(maara, 1);
     }
 
-    public void testLisaaOikeaSana() {
-        boolean lisaaSana = instance.lisaaSana("test", "testisana1");
-        assertEquals(lisaaSana, true);
-    }
-    
-        public void testLisaaVaaraSana() {
-        boolean lisaaSana = instance.lisaaSana("test", "testisana3");
-        assertEquals(lisaaSana, false);
-    }
-   public void testLisaaLisattySana(){
-       instance.lisaaSana("test", "testisana1");
-       boolean lisaaSanaUudestaan = instance.lisaaSana("test", "testisana1");
-       assertEquals(lisaaSanaUudestaan, false);
-       
-   }
 }
