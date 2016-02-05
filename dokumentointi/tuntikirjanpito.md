@@ -31,8 +31,9 @@
 
 ##04.2.2016
 - projektin muokkailu
+- pit
 
-:clock10: *4 tuntia*
+:clock10: *5 tuntia*
 
 
 
