@@ -5,7 +5,7 @@
  */
 package com.eevaalanko.sanastasanaan.tietovarasto;
 
-
+import java.util.ArrayList;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -14,10 +14,21 @@ import static org.junit.Assert.*;
  * @author Eeva
  */
 public class SanavarastoTest {
-    
-    public SanavarastoTest() {
-    }
-    
+     static Sanavarasto varasto;
 
-    
+    public SanavarastoTest() {
+        varasto = new Sanavarasto();
+    }
+
+    public void testLueOikeaTiedosto() {
+         ArrayList lista = varasto.sanakirja.sanasto.get(this);
+
+    }
+    public void testLueVaaraTiedosto(){
+        
+    }
+     public void testLueTyhjaTiedosto(){
+        
+    }
+
 }

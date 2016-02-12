@@ -41,6 +41,7 @@ public class Sanakirja {
 
     public int laskeSanalista(String alkusana) {
         ArrayList lista = sanasto.get(alkusana);
+      
         return lista.size();
     }
 

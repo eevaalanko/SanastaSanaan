@@ -35,17 +35,16 @@ public final class SanastaSanaanGui extends JFrame {
     private final Color cViides = new Color(51, 255, 255);
 
     private final JPanel paEka = new JPanel(new FlowLayout(FlowLayout.LEFT));
-    private final JPanel paToka = new JPanel(new FlowLayout(FlowLayout.LEFT));
+    private JPanel paToka = new JPanel(new FlowLayout(FlowLayout.LEFT));
     private final JPanel paKolmas = new JPanel(new FlowLayout(FlowLayout.LEFT));
     private final JPanel paNeljas = new JPanel(new FlowLayout(FlowLayout.LEFT));
-    private final JPanel paPohjaVasen = new JPanel(new GridLayout(2, 1)); // 4 iv 1
+    private final JPanel paPohjaVasen = new JPanel(new GridLayout(3, 1)); // 4 iv 1
     private final JPanel paPohjaOikea = new JPanel(new GridLayout(1, 0));
     private final JPanel paAlusta = new JPanel(new GridLayout(0, 2));
 
     private final JButton btAloita = new JButton("Aloita peli.");
     private final JButton btLisaaSana = new JButton("Lisää sana");
     private final JButton btInfo = new JButton("OHJEET");
-    private final JButton btUusiPeli = new JButton("Uusi peli.");
 
     private final JLabel jlPisteet = new JLabel("Amat victoria curam.");
     private final JLabel jlEka = new JLabel("Valitse avainsana:            ");
@@ -58,7 +57,7 @@ public final class SanastaSanaanGui extends JFrame {
 
     public Timer timer;
     public long startTime = -1;
-    public long duration = 20000;                  //100000
+    public long duration = 100000;                  //100000
 
     public SanastaSanaanGui() throws IOException {
         Collection avainlista = varasto.sanakirja.annaAvainsanat();
@@ -85,7 +84,6 @@ public final class SanastaSanaanGui extends JFrame {
 
         paKolmas.add(jlPisteet);
         paKolmas.add(btInfo);
-//        paKolmas.add(btUusiPeli);              //todo, ei toimi vielä
 
         paNeljas.add(jlTimer);
         paNeljas.add(jlValittuAvainsana);
@@ -116,7 +114,6 @@ public final class SanastaSanaanGui extends JFrame {
         btAloita.addActionListener(new AlsAloita());
         btLisaaSana.addActionListener(new AlsLisaaSana());
         btInfo.addActionListener(new AlsInfo());
-//        btUusiPeli.addActionListener(new AlsAloitaAlusta());
     }
 
     class AlsLisaaSana implements ActionListener {
@@ -137,10 +134,10 @@ public final class SanastaSanaanGui extends JFrame {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            btAloita.setText("Uusi peli");
             timer.start();
             jlValittuAvainsana.setText(cbValinta.getSelectedItem().toString());
             paPohjaVasen.add(paToka);
-            paPohjaVasen.remove(paEka);
         }
     }
 
@@ -158,6 +155,7 @@ public final class SanastaSanaanGui extends JFrame {
                 timer.stop();
                 jlTimer.setText("00:00:00");
                 naytaTulokset();
+                paPohjaVasen.remove(paToka);
             }
             SimpleDateFormat df = new SimpleDateFormat("mm:ss:SSS");
             jlTimer.setText(df.format(duration - clockTime));
@@ -186,31 +184,14 @@ public final class SanastaSanaanGui extends JFrame {
         }
     }
 
-    //TODO: make this work...
-//    class AlsAloitaAlusta implements ActionListener {
-//        
-//        @Override
-//        public void actionPerformed(ActionEvent e) {
-//            timer.stop();
-//            jlTimer.setText("00:00:00");
-//            jlTimer.removeAll();
-//            tfSana.setText("");
-//            taHyvaksytyt.setText("");
-//            jlValittuAvainsana.setText("");
-//            
-//            timer = new Timer(10, (ActionListener) new AlsAjastin());
-//            paPohjaVasen.remove(paToka);
-//            paPohjaVasen.add(paEka);
-//            
-//            paAlusta.revalidate();
-//            paAlusta.repaint();
-//            
-//        }
-//    }
-//    
     public static void main(String[] args) throws IOException {
         SanastaSanaanGui akkuna = new SanastaSanaanGui();
         akkuna.setVisible(true);
+//        Sanavarasto varasto = new Sanavarasto();
+//        System.out.println("gggrr" + varasto.sanakirja.annaSanalista("TESTI"));
+//        System.out.println("laske" + varasto.sanakirja.laskeSanalista("TESTI"));
+//        varasto.lueTiedostot();
+//        System.out.println("gghht" + varasto.sanakirja.annaAvainsanat());
 
     }
 
