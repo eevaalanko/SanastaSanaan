@@ -7,6 +7,7 @@ package com.eevaalanko.sanastasanaan.logiikka;
 
 import com.eevaalanko.sanastasanaan.tietovarasto.Sanavarasto;
 import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  *
@@ -17,18 +18,38 @@ public class HyvaksytytSanat {
     Sanavarasto varasto = new Sanavarasto();
 
     public ArrayList<String> hyvaksytyt;
+    public String avainsana;
 
     public HyvaksytytSanat() {
         hyvaksytyt = new ArrayList<>();
+        avainsana = "";
     }
 
-    public boolean tarkistaSana(String alkusana, String tarkistettava) {
-        ArrayList <String>lista = varasto.sanakirja.annaSanalista(alkusana);
-        return lista.contains(tarkistettava);
+    public boolean tarkistaAvainsana(String alkusana) {
+        Collection c = varasto.sanakirja.annaAvainsanat();
+        if(c.isEmpty()||c == null){
+            return false;
+        }
+       
+       else if (c.contains(alkusana)) {
+            this.avainsana = alkusana;
+            return true;
+        } else {
+        }
+        this.avainsana = "";
+        return false;
+    }
+
+    public boolean tarkistaSana(String tarkistettava) {
+        if (tarkistaAvainsana(this.avainsana)) {
+            ArrayList<String> lista = varasto.sanakirja.annaSanalista(this.avainsana);
+            return lista.contains(tarkistettava);
+        }
+        return false;
     }
 
     public boolean lisaaSana(String alkusana, String tarkistettava) {
-        boolean tarkistaSana = this.tarkistaSana(alkusana, tarkistettava);
+        boolean tarkistaSana = this.tarkistaSana(tarkistettava);
         boolean onJoLisatty = this.onJoLisatty(tarkistettava);
         if (tarkistaSana && !onJoLisatty) {
             hyvaksytyt.add(tarkistettava);
@@ -52,9 +73,11 @@ public class HyvaksytytSanat {
         }
         return this.hyvaksytyt.size();
     }
-    public void poistaSana(String poistettava){
-        if(this.hyvaksytyt.contains(poistettava)){
-        this.hyvaksytyt.remove(poistettava);}
+
+    public void poistaSana(String poistettava) {
+        if (this.hyvaksytyt.contains(poistettava)) {
+            this.hyvaksytyt.remove(poistettava);
+        }
     }
 
 }
