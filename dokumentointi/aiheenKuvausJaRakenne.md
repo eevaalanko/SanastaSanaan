@@ -9,9 +9,8 @@
 ####Pelaaja
 - Klikkaa peliohjeen auki info-painikkeesta
 - Valitsee valikosta sanan klikkaamalla, jolloin aika alkaa juosta
-- Syöttää sanat avautuvaan valikkoon, submittiia klikkaamalla joka sanan
+- Syöttää sanat avautuvaan valikkoon, submittaa klikkaamalla joka sanan
 - Katsoo tuloksensa pisteruudusta, kun aika loppuu
-- Katselee tuloksia top ten- taulukosta sivupalkissa (ei varma toteutuuko)
 
 ####Admin
 - lisää/muokkaa/poistaa alkusanoja sanatiedostoja
