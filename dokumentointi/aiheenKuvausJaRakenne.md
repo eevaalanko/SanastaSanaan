@@ -7,7 +7,6 @@
 
 ##Käyttäjät
 ####Pelaaja
-- Syöttää tietonsa/kirjautuu sisään login-painikkeesta (ei vielä varma toteutuuko, riippuu ajasta)
 - Klikkaa peliohjeen auki info-painikkeesta
 - Valitsee valikosta sanan klikkaamalla, jolloin aika alkaa juosta
 - Syöttää sanat avautuvaan valikkoon, submittiia klikkaamalla joka sanan
@@ -15,9 +14,7 @@
 - Katselee tuloksia top ten- taulukosta sivupalkissa (ei varma toteutuuko)
 
 ####Admin
-- lisää/muokkaa/poistaa alkusanoja
-- lisää/muokkaa/poistaa alkusanojen sanastoa
-- lisää/muokkaa/poistaa käyttäjiä (ei varma toteutuuko)
+- lisää/muokkaa/poistaa alkusanoja sanatiedostoja
 
 ##Käyttöliittymä
 *Pelin graafinen käyttöliittymä toteutetaan java swingillä.*
