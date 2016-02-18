@@ -25,18 +25,18 @@ import org.junit.BeforeClass;
 public class SanakirjaTest {
 
     static ArrayList lista;
+    static ArrayList tyhjaLista;
     static Sanakirja sanakirja;
-
-    public SanakirjaTest() {
-        lista = new ArrayList<>();
-        lista.add("testisana1");
-        sanakirja = new Sanakirja();        
-        sanakirja.lisaaSanalista("test", lista);
-
-    }
 
     @BeforeClass
     public static void setUpClass() throws Exception {
+        lista = new ArrayList<>();
+        lista.add("testisana1");
+        tyhjaLista = new ArrayList<>();
+        sanakirja = new Sanakirja();
+        sanakirja.lisaaSanalista("test2", tyhjaLista);
+        sanakirja.lisaaSanalista("test", lista);
+
     }
 
     @AfterClass
@@ -86,18 +86,24 @@ public class SanakirjaTest {
         Collection avainlista = sanakirja.annaAvainsanat();
         Object[] l = avainlista.toArray();
         List k = Arrays.asList(l);
-        assertEquals(Arrays.asList("test"), k);
+        assertEquals(Arrays.asList("test2", "test"), k);
     }
 
+    @Test
     public void testLaskeSanaLista() {
         int maara = sanakirja.laskeSanalista("test");
         assertEquals(maara, 1);
     }
 
+    @Test
     public void testLaskeOlematonSanaLista() {
         int maara = sanakirja.laskeSanalista("vaara");
-        assertEquals(maara, null);
+        assertEquals(maara, 0);
     }
 
-
+    @Test
+    public void testLaskeTyhjaSanaLista() {
+        int maara = sanakirja.laskeSanalista("test2");
+        assertEquals(maara, 0);
+    }
 }

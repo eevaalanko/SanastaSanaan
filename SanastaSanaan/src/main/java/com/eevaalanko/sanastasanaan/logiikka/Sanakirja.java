@@ -15,7 +15,6 @@ import java.util.HashMap;
  */
 public class Sanakirja {
 
- 
     public HashMap< String, ArrayList> sanasto;
 
     public Sanakirja() {
@@ -40,9 +39,15 @@ public class Sanakirja {
     }
 
     public int laskeSanalista(String alkusana) {
-        ArrayList lista = sanasto.get(alkusana);
-      
-        return lista.size();
+        if (sanasto.get(alkusana) != null) {
+            ArrayList lista = sanasto.get(alkusana);
+            if (lista.isEmpty()) {
+                return 0;
+            } else {
+                return lista.size();
+            }
+        }
+        return 0;
     }
 
     public Collection annaAvainsanat() {

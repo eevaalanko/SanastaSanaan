@@ -7,13 +7,9 @@ package com.eevaalanko.sanastasanaan.logiikka;
 
 import com.eevaalanko.sanastasanaan.tietovarasto.Sanavarasto;
 import java.util.ArrayList;
-import java.util.Collection;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Before;
 
 /**
  *
@@ -25,99 +21,78 @@ public class HyvaksytytSanatTest {
     static ArrayList lista;
     static HyvaksytytSanat instance;
 
-    public HyvaksytytSanatTest() {
-//        varasto.sanakirja.annaSanalista("TESTI");
-
+    @Before
+    public void setUp() {
+        instance = new HyvaksytytSanat("TESTI");
+        instance.lisaaSana("te");
     }
 
-    public void testTarkistaOikeaAvainsana() {
-        boolean b = instance.tarkistaAvainsana("TESTI");
-        boolean c = varasto.sanakirja.annaAvainsanat().contains("TESTI");
-        assertEquals(b, c);
+    @Test
+    public void testTarkistaOikeaSana() {
+        boolean b = instance.tarkistaSana("te");
+        assertEquals(b, true);
     }
 
+    @Test
+    public void testTarkistaVaaraSana() {
+        boolean b = instance.tarkistaSana("vaara");
+        assertEquals(b, false);
+    }
+
+    @Test
     public void testTarkistaVaaraAvainsana() {
-        boolean b = instance.tarkistaAvainsana("VAARA");
-        boolean c = varasto.sanakirja.annaAvainsanat().contains("VAARA");
-        assertEquals(b, c);
+        HyvaksytytSanat instance2 = new HyvaksytytSanat();
+        boolean b = instance2.tarkistaSana("sana");
+        assertEquals(b, false);
     }
 
-    public void testTarkistaMuuttuukoOikeallaAvainsanalla() {
-        instance.tarkistaAvainsana("TESTI");
-        String avainsana = instance.avainsana;
-        assertEquals(avainsana, "TESTI");
+    @Test
+    public void testLisaaSana() {
+        boolean b = instance.lisaaSana("se");
+        assertEquals(b, true);
     }
 
-    public void testTarkistaMuuttuukoVaarallaAvainsanalla() {
-        instance.tarkistaAvainsana("VAARA");
-        String avainsana = instance.avainsana;
-        assertEquals(avainsana, "");
+    @Test
+    public void testLisaaLisattySana() {
+        boolean b = instance.lisaaSana("te");
+        assertEquals(b, false);
     }
 
-    public void testTarkistaOnko() {
-        Collection c = varasto.sanakirja.annaAvainsanat();
-// then
-        assertTrue(c.contains("TESTI"));
+    @Test
+    public void testLisaaVaaraSana() {
+        boolean b = instance.lisaaSana("vaara");
+        assertEquals(b, false);
     }
-        public void testTarkistaEikoOle() {
-        Collection c = varasto.sanakirja.annaAvainsanat();
-// then
-        assertFalse(c.contains("ftftft"));
+
+    @Test
+    public void testOnJoLisatty() {
+        boolean b = instance.onJoLisatty("te");
+        assertEquals(b, true);
     }
-//
-//    public void testTarkistaVaaraSana() {
-//        String tarkistettava = "wrongWord";
-//        String avainsana = "TESTI";
-//        boolean expResult = false;
-//        boolean result = instance.tarkistaSana(avainsana);
-//        assertEquals(expResult, result);
-//    }
-//
-//    public void testTarkistaOikeaSana() {
-//        String tarkistettava = "testisana1";
-//        String avainsana = "test";
-//        boolean expResult = true;
-//        boolean result = instance.tarkistaSana("te");
-//        assertEquals(expResult, result);
-//    }
-//
-//    public void testOnJoLisattyEiOle() {
-//        String lisattySana = "testisana1";
-//        boolean onJoLisatty = instance.onJoLisatty(lisattySana);
-//        assertEquals(onJoLisatty, false);
-//    }
-//
-//    public void testOnJoLisatty() {
-//        String lisattySana = "testisana1";
-//        boolean onJoLisatty = instance.onJoLisatty(lisattySana);
-//        assertEquals(onJoLisatty, true);
-//    }
-//
-//    public void testLisaaOikeaSana() {
-//        boolean lisaaSana = instance.lisaaSana("test", "testisana1");
-//        assertEquals(lisaaSana, true);
-//    }
-//
-//    public void testLisaaVaaraSana() {
-//        boolean lisaaSana = instance.lisaaSana("test", "testisana3");
-//        assertEquals(lisaaSana, false);
-//    }
-//
-//    public void testLisaaLisattySana() {
-//        boolean lisaaSanaUudestaan = instance.lisaaSana("test", "testisana1");
-//        assertEquals(lisaaSanaUudestaan, false);
-//
-//    }
-//
-//    public void testLaskeSanatJosTyhja() {
-//        instance.poistaSana("testisana1");
-//        int maara = instance.laskeSanat();
-//        assertEquals(maara, 0);
-//    }
-//
-//    public void testLaskeSanat() {
-//        int maara = instance.laskeSanat();
-//        assertEquals(maara, 1);
-//    }
+
+    @Test
+    public void testEiOleLisatty() {
+        boolean b = instance.onJoLisatty("se");
+        assertEquals(b, false);
+    }
+
+    @Test
+    public void testPoistaSanat() {
+        instance.poistaSanat();
+        assertEquals(instance.laskeSanat(), 0);
+    }
+
+    @Test
+    public void testLaskeSanatJosTyhja() {
+        instance.poistaSanat();
+        int maara = instance.laskeSanat();
+        assertEquals(maara, 0);
+    }
+
+    @Test
+    public void testLaskeSanat() {
+        int maara = instance.laskeSanat();
+        assertEquals(maara, 1);
+    }
 
 }

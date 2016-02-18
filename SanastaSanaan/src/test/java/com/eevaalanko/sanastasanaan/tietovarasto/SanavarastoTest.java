@@ -8,6 +8,7 @@ package com.eevaalanko.sanastasanaan.tietovarasto;
 import java.util.ArrayList;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.BeforeClass;
 
 /**
  *
@@ -16,12 +17,15 @@ import static org.junit.Assert.*;
 public class SanavarastoTest {
      static Sanavarasto varasto;
 
-    public SanavarastoTest() {
+
+    @BeforeClass
+    public static void setUpClass() throws Exception {
         varasto = new Sanavarasto();
     }
-
+    
+    @Test
     public void testLueOikeaTiedosto() {
-         ArrayList lista = varasto.sanakirja.sanasto.get(this);
+         
 
     }
     public void testLueVaaraTiedosto(){

@@ -16,39 +16,27 @@ import java.util.Collection;
 public class HyvaksytytSanat {
 
     Sanavarasto varasto = new Sanavarasto();
-
-    public ArrayList<String> hyvaksytyt;
     public String avainsana;
 
+    public ArrayList<String> hyvaksytyt;
+
     public HyvaksytytSanat() {
-        hyvaksytyt = new ArrayList<>();
-        avainsana = "";
     }
 
-    public boolean tarkistaAvainsana(String alkusana) {
-        Collection c = varasto.sanakirja.annaAvainsanat();
-        if(c.isEmpty()||c == null){
-            return false;
-        }
-       
-       else if (c.contains(alkusana)) {
-            this.avainsana = alkusana;
-            return true;
-        } else {
-        }
-        this.avainsana = "";
-        return false;
+    public HyvaksytytSanat(String avainsana) {
+        hyvaksytyt = new ArrayList<>();
+        this.avainsana = avainsana;
     }
 
     public boolean tarkistaSana(String tarkistettava) {
-        if (tarkistaAvainsana(this.avainsana)) {
-            ArrayList<String> lista = varasto.sanakirja.annaSanalista(this.avainsana);
+        ArrayList<String> lista = varasto.sanakirja.annaSanalista(this.avainsana);
+        if (lista != null) {
             return lista.contains(tarkistettava);
         }
         return false;
     }
 
-    public boolean lisaaSana(String alkusana, String tarkistettava) {
+    public boolean lisaaSana(String tarkistettava) {
         boolean tarkistaSana = this.tarkistaSana(tarkistettava);
         boolean onJoLisatty = this.onJoLisatty(tarkistettava);
         if (tarkistaSana && !onJoLisatty) {
@@ -62,11 +50,6 @@ public class HyvaksytytSanat {
         return this.hyvaksytyt.contains(tarkistettava);
     }
 
-    @Override
-    public String toString() {
-        return this.hyvaksytyt.toString();
-    }
-
     public int laskeSanat() {
         if (hyvaksytyt.isEmpty()) {
             return 0;
@@ -74,10 +57,8 @@ public class HyvaksytytSanat {
         return this.hyvaksytyt.size();
     }
 
-    public void poistaSana(String poistettava) {
-        if (this.hyvaksytyt.contains(poistettava)) {
-            this.hyvaksytyt.remove(poistettava);
-        }
+    public void poistaSanat() {
+        this.hyvaksytyt.clear();
     }
 
 }
