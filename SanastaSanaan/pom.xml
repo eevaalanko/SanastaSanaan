@@ -52,7 +52,12 @@
                         <param>com.eevaalanko.sanastasanaan.tietovarasto.*</param>                     
                     </targetTests>
                 </configuration>
-            </plugin>
+            </plugin>          
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.10.3</version>
+            </plugin> 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
@@ -66,11 +71,6 @@
                 <artifactId>maven-jxr-plugin</artifactId>
                 <version>2.5</version>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.10.3</version>
-            </plugin> 
         </plugins>
     </build>
 </project>

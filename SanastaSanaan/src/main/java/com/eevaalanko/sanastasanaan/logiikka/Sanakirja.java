@@ -17,17 +17,39 @@ public class Sanakirja {
 
     public HashMap< String, ArrayList> sanasto;
 
+    /**
+     * Alustaa uuden HashMapin sanasto
+     */
     public Sanakirja() {
         sanasto = new HashMap<>();
     }
 
+    /**
+     * Lisaa HashMapiin sanasto avaimen listattava ja arvon lista
+     *
+     * @param listattava kayttajan antama syote
+     * @param lista kayttajan antama syote
+     */
+    
     public void lisaaSanalista(String listattava, ArrayList lista) {
         sanasto.put(listattava, lista);
     }
 
+    /**
+     * Poistaa HashMapista sanasto avaimen listattava ja avaimen arvon.
+     *
+     * @param listattava kayttajan antama syote
+     */
+    
     public void poistaSanalista(String listattava) {
         sanasto.remove(listattava);
     }
+    
+    /**
+     * Palauttaa HashMap sanastosta annetun avaimen mukaisen arvon eli sanalistan.
+     * @param alkusana kayttajan antama syote
+     * @return null, jos syotetta ei ole avaimena, muuten avaimen mukaisen ArrayListin
+     */
 
     public ArrayList annaSanalista(String alkusana) {
         ArrayList<String> lista = new ArrayList<>();
@@ -37,6 +59,12 @@ public class Sanakirja {
         }
         return lista;
     }
+    
+    /**
+     * Laskee syotteen palauttaman sanalistan koon.
+     * @param alkusana kayttajan antama syote
+     * @return listan koko, jos lista on tyhja, return 0.
+     */
 
     public int laskeSanalista(String alkusana) {
         if (sanasto.get(alkusana) != null) {
@@ -49,9 +77,15 @@ public class Sanakirja {
         }
         return 0;
     }
-
-    public Collection annaAvainsanat() {
-        Collection avainlista = sanasto.keySet();
+    
+    /**
+     * Palauttaa kaikki HashMap sanaston avaimet.
+     * @return avainsanat kokoelmana
+     */
+  
+    public Object[] annaAvainsanat() {
+        Collection c = sanasto.keySet();
+        Object avainlista[] = c.toArray(new Object[c.size()]);
         return avainlista;
     }
 

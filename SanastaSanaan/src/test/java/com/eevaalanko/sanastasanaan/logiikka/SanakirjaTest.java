@@ -83,8 +83,7 @@ public class SanakirjaTest {
      */
     @Test
     public void testAnnaAvainsanat() {
-        Collection avainlista = sanakirja.annaAvainsanat();
-        Object[] l = avainlista.toArray();
+        Object[] l = sanakirja.annaAvainsanat();
         List k = Arrays.asList(l);
         assertEquals(Arrays.asList("test2", "test"), k);
     }

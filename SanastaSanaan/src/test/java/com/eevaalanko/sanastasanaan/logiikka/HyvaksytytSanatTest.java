@@ -41,7 +41,7 @@ public class HyvaksytytSanatTest {
 
     @Test
     public void testTarkistaVaaraAvainsana() {
-        HyvaksytytSanat instance2 = new HyvaksytytSanat();
+        HyvaksytytSanat instance2 = new HyvaksytytSanat("vaaraSana");
         boolean b = instance2.tarkistaSana("sana");
         assertEquals(b, false);
     }
