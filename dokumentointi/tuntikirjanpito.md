@@ -35,6 +35,14 @@
 
 :clock10: *5 tuntia*
 
+#12.2. 2016
+- projektin muokkailua
+- bugin selvittelyä
+
+:clock10: *5 tuntia*
+
+
+
 
 
 
