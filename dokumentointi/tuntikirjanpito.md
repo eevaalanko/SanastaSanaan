@@ -41,6 +41,20 @@
 
 :clock10: *5 tuntia*
 
+#17.2. 2016
+- testien korjailua pajassa
+
+:clock10: *2 tuntia*
+
+#19.2. 2016
+- javadocin luonti
+- checkstylen tarkastus
+- sekvenssikaavioiden luonti
+
+:clock10: *4 tuntia*
+
+
+
 
 
 
