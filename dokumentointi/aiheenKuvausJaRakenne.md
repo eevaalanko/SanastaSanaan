@@ -7,13 +7,13 @@
 
 ##Käyttäjät
 ####Pelaaja
-- Klikkaa peliohjeen auki info-painikkeesta
-- Valitsee valikosta sanan klikkaamalla, jolloin aika alkaa juosta
-- Syöttää sanat avautuvaan valikkoon, submittaa klikkaamalla joka sanan
-- Katsoo tuloksensa pisteruudusta, kun aika loppuu
+- Klikkaa peliohjeen auki info-painikkeesta.
+- Valitsee valikosta sanan klikkaamalla, jolloin aika alkaa juosta.
+- Syöttää sanat avautuvaan valikkoon, submittaa klikkaamalla joka sanan.
+- Katsoo tuloksensa pisteruudusta, kun aika loppu.u
 
 ####Admin
-- lisää/muokkaa/poistaa alkusanoja sanatiedostoja
+- Lisää/muokkaa/poistaa alkusanoja sanatiedostoja.
 
 ##Käyttöliittymä
 *Pelin graafinen käyttöliittymä toteutetaan java swingillä.*
