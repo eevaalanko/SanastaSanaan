@@ -33,7 +33,7 @@ public class SanastaSanaanGui extends JFrame {
      */
     private final Sanavarasto varasto = new Sanavarasto();
     private final AlsInfo ai = new AlsInfo();
-    private HyvaksytytSanat hyvaksytyt;
+    public HyvaksytytSanat hyvaksytyt;
     private final Color cEka = new Color(122, 187, 203);
     private final Color cToka = new Color(0, 204, 204);
     private final Color cKolmas = new Color(150, 159, 161);
@@ -43,7 +43,7 @@ public class SanastaSanaanGui extends JFrame {
     private final JPanel paToka = new JPanel(new FlowLayout(FlowLayout.LEFT));
     private final JPanel paKolmas = new JPanel(new FlowLayout(FlowLayout.LEFT));
     private final JPanel paNeljas = new JPanel(new FlowLayout(FlowLayout.LEFT));
-    private final JPanel paPohjaVasen = new JPanel(new GridLayout(3, 1)); // 4 iv 1
+    private final JPanel paPohjaVasen = new JPanel(new GridLayout(3, 1)); 
     private final JPanel paPohjaOikea = new JPanel(new GridLayout(1, 0));
     private final JPanel paAlusta = new JPanel(new GridLayout(0, 2));
     private final JButton btAloita = new JButton("Aloita peli.");
@@ -53,8 +53,8 @@ public class SanastaSanaanGui extends JFrame {
     private final JLabel jlEka = new JLabel("Valitse avainsana:            ");
     private final JLabel jlValittuAvainsana = new JLabel();
     public JLabel jlTimer = new JLabel("00:00:00");
-    public Object[] avainlista = varasto.sanakirja.annaAvainsanat();
-    private final JComboBox cbValinta = new JComboBox(avainlista);
+    public Object[] avainlista;
+    private  JComboBox cbValinta;
     private final JFormattedTextField tfSana = new JFormattedTextField();
     private final TextArea taHyvaksytyt = new TextArea();
     public Timer timer;
@@ -69,6 +69,8 @@ public class SanastaSanaanGui extends JFrame {
      * @throws IOException if stream to aFile cannot be written to or closed.
      */
     public SanastaSanaanGui() throws IOException {
+        avainlista = varasto.sanakirja.annaAvainsanat();
+        cbValinta = new JComboBox(avainlista);
         this.cbValinta.setPreferredSize(new Dimension(150, 24));
         this.tfSana.setPreferredSize(new Dimension(200, 24));
         this.timer = new Timer(10, (ActionListener) new AlsAjastin());
@@ -125,9 +127,7 @@ public class SanastaSanaanGui extends JFrame {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            String avainsana = jlValittuAvainsana.getText();
-            String sana = tfSana.getText();
-            hyvaksytyt = new HyvaksytytSanat(avainsana);
+            String sana = tfSana.getText();         
             boolean ok = hyvaksytyt.lisaaSana(sana);
             if (ok) {
                 taHyvaksytyt.append(sana + "\n");
@@ -145,7 +145,9 @@ public class SanastaSanaanGui extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
             timer.start();
-            jlValittuAvainsana.setText(cbValinta.getSelectedItem().toString());
+            String avainsana = cbValinta.getSelectedItem().toString();
+            jlValittuAvainsana.setText(avainsana);
+            hyvaksytyt = new HyvaksytytSanat(avainsana);
             paPohjaVasen.add(paToka);
         }
     }
