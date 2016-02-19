@@ -21,3 +21,7 @@
 ##Luokkakaavio
 ![Alt text](SanastaSanaanLuokkakaavio.jpg)
 
+##Sekvenssikaaviot
+![Alt text](SanastaSanaanAvainsananValinta.jpg)
+
+
