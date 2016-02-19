@@ -10,7 +10,7 @@
 - Klikkaa peliohjeen auki info-painikkeesta.
 - Valitsee valikosta sanan klikkaamalla, jolloin aika alkaa juosta.
 - Syöttää sanat avautuvaan valikkoon, submittaa klikkaamalla joka sanan.
-- Katsoo tuloksensa pisteruudusta, kun aika loppu.u
+- Katsoo tuloksensa pisteruudusta, kun aika loppuu.
 
 ####Admin
 - Lisää/muokkaa/poistaa alkusanoja sanatiedostoja.
