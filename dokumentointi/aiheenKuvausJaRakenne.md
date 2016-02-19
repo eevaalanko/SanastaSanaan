@@ -13,7 +13,7 @@
 - Katsoo tuloksensa pisteruudusta, kun aika loppuu.
 
 ####Admin
-- Lisää/muokkaa/poistaa alkusanoja sanatiedostoja.
+- Lisää/muokkaa/poistaa sanatiedostoja.
 
 ##Käyttöliittymä
 *Pelin graafinen käyttöliittymä toteutetaan java swingillä.*
