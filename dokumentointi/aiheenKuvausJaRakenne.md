@@ -28,6 +28,9 @@
 ####Avainsanan valinta
 ![Alt text](SanastaSanaanAvainsananValinta.jpg)
 
+####Onnistunut sanan lisäys
+![Alt text](SanastaSanaanOnnistunutSananlisays.jpg)
+
 ####Epäonnistunut sanan lisäys
 ![Alt text](SanastaSanaanEpaonnistunutSananlisays.jpg)
 
