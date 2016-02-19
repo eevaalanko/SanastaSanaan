@@ -22,6 +22,13 @@
 ![Alt text](SanastaSanaanLuokkakaavio.jpg)
 
 ##Sekvenssikaaviot
+####Peliohjeen lukeminen
+![Alt text](SanastaSanaanPeliohjeenLukeminen.jpg)
+
+####Avainsanan valinta
 ![Alt text](SanastaSanaanAvainsananValinta.jpg)
+
+####Epäonnistunut sanan lisäys
+![Alt text](SanastaSanaanEpaonnistunutSananlisays.jpg)
 
 
