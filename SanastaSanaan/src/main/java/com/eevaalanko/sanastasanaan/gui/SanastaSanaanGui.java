@@ -13,54 +13,62 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.Collection;
 import javax.swing.JFrame;
 
 /**
+ * Ohjelman SanastaSanaan graafinen kayttoliittyma.
  *
  * @author Eeva
  */
 public class SanastaSanaanGui extends JFrame {
 
-    private Sanavarasto varasto = new Sanavarasto();
-    public AlsInfo ai;
+    /**
+     * Luokkien Sanavarasto, HyvaksytytSanat ja AlsInfo- ilmentymien alustus.
+     * Varien ja paneelien ja otsikoiden luonti, painikkeiden luonti: btInfo
+     * avaa peliohjeet, btAloita kaynnistaa ajastimen ja aloittaa pelin,
+     * btLisaaSanan avulla kayttaja lisaa uusia sanoja, pudotusvalikko
+     * cbValinnasta kayttaja valitsee haluamansa avainsanan. Ajastimen alkuajan
+     * ja ajan keston asetus. Pudotusvalikko sisaltaa avainsanat.
+     *
+     */
+    private final Sanavarasto varasto = new Sanavarasto();
+    private final AlsInfo ai = new AlsInfo();
     private HyvaksytytSanat hyvaksytyt;
-    private Color cEka = new Color(122, 187, 203);
-    private Color cToka = new Color(0, 204, 204);
-    private Color cKolmas = new Color(150, 159, 161);
-    private Color cNeljas = new Color(0, 128, 128);
-    private Color cViides = new Color(51, 255, 255);
-    private JPanel paEka = new JPanel(new FlowLayout(FlowLayout.LEFT));
-    private JPanel paToka = new JPanel(new FlowLayout(FlowLayout.LEFT));
-    private JPanel paKolmas = new JPanel(new FlowLayout(FlowLayout.LEFT));
-    private JPanel paNeljas = new JPanel(new FlowLayout(FlowLayout.LEFT));
-    private JPanel paPohjaVasen = new JPanel(new GridLayout(3, 1)); // 4 iv 1
-    private JPanel paPohjaOikea = new JPanel(new GridLayout(1, 0));
-    private JPanel paAlusta = new JPanel(new GridLayout(0, 2));
-    private JButton btAloita = new JButton("Aloita peli.");
-    private JButton btLisaaSana = new JButton("Lisää sana");
-    public JButton btInfo;
-    private JLabel jlPisteet = new JLabel("Amat victoria curam.");
-    private JLabel jlEka = new JLabel("Valitse avainsana:            ");
-    private JLabel jlValittuAvainsana = new JLabel();
-    private JLabel jlTimer = new JLabel("00:00:00");
-    private JComboBox cbValinta;
-    private JFormattedTextField tfSana = new JFormattedTextField();
-    private TextArea taHyvaksytyt = new TextArea();
+    private final Color cEka = new Color(122, 187, 203);
+    private final Color cToka = new Color(0, 204, 204);
+    private final Color cKolmas = new Color(150, 159, 161);
+    private final Color cNeljas = new Color(0, 128, 128);
+    private final Color cViides = new Color(51, 255, 255);
+    private final JPanel paEka = new JPanel(new FlowLayout(FlowLayout.LEFT));
+    private final JPanel paToka = new JPanel(new FlowLayout(FlowLayout.LEFT));
+    private final JPanel paKolmas = new JPanel(new FlowLayout(FlowLayout.LEFT));
+    private final JPanel paNeljas = new JPanel(new FlowLayout(FlowLayout.LEFT));
+    private final JPanel paPohjaVasen = new JPanel(new GridLayout(3, 1)); // 4 iv 1
+    private final JPanel paPohjaOikea = new JPanel(new GridLayout(1, 0));
+    private final JPanel paAlusta = new JPanel(new GridLayout(0, 2));
+    private final JButton btAloita = new JButton("Aloita peli.");
+    private final JButton btLisaaSana = new JButton("Lisää sana");
+    public JButton btInfo = new JButton("OHJEET");
+    private final JLabel jlPisteet = new JLabel("Amat victoria curam.");
+    private final JLabel jlEka = new JLabel("Valitse avainsana:            ");
+    private final JLabel jlValittuAvainsana = new JLabel();
+    public JLabel jlTimer = new JLabel("00:00:00");
+    public Object[] avainlista = varasto.sanakirja.annaAvainsanat();
+    private final JComboBox cbValinta = new JComboBox(avainlista);
+    private final JFormattedTextField tfSana = new JFormattedTextField();
+    private final TextArea taHyvaksytyt = new TextArea();
     public Timer timer;
     public long startTime = -1;
     public long duration = 100000;
-    public Object[] avainlista;
 
     /**
+     * Konstruktori maarittaa komponenttien kokoja ja alustaa ajastimen ja lisaa
+     * siihen tapahtumankuuntelijan. Toteuttaa metodin asetteleKomponentit().
+     * Asettaa oletusmetodin, joka sammuttaa ohjelman suljettaessa.
      *
-     * @throws IOException
+     * @throws IOException if stream to aFile cannot be written to or closed.
      */
     public SanastaSanaanGui() throws IOException {
-        this.btInfo = new JButton("OHJEET");
-        avainlista = varasto.sanakirja.annaAvainsanat();
-        ai = new AlsInfo();
-        this.cbValinta = new JComboBox(avainlista);
         this.cbValinta.setPreferredSize(new Dimension(150, 24));
         this.tfSana.setPreferredSize(new Dimension(200, 24));
         this.timer = new Timer(10, (ActionListener) new AlsAjastin());
@@ -72,7 +80,7 @@ public class SanastaSanaanGui extends JFrame {
     }
 
     /**
-     * Asettelee komponentit Jpanel alustaan. Asettaa alustan JFrame'iin.
+     * Metodi asettelee komponentit Jpanel alustaan. Asettaa alustan JFrame'iin.
      * Asettaa JFrame'ille standardikoon. Lisaa tapahtumankuuntelijat
      * painikkeisiin.
      */
@@ -111,14 +119,10 @@ public class SanastaSanaanGui extends JFrame {
     }
 
     /**
-     * sisainen luokka AlsLisaaSana implementoi tapahtumankuuntelijaa
+     * Sisainen tapahtumankuuntelijaluokka sanojenlisaykseen.
      */
     class AlsLisaaSana implements ActionListener {
 
-        /**
-         *
-         * @param e
-         */
         @Override
         public void actionPerformed(ActionEvent e) {
             String avainsana = jlValittuAvainsana.getText();
@@ -133,24 +137,22 @@ public class SanastaSanaanGui extends JFrame {
     }
 
     /**
-     * sisainen luokka AlsLisaaSana implementoi tapahtumankuuntelijaa
+     * Sisainen tapahtumenkuuntelijaluokka kaynnistaa ajastimen ja lisaa
+     * sanojenlisayspaneelin peliin.
      */
     class AlsAloita implements ActionListener {
 
-        /**
-         *
-         * @param e
-         */
-
         @Override
         public void actionPerformed(ActionEvent e) {
-            btAloita.setText("Uusi peli");
             timer.start();
             jlValittuAvainsana.setText(cbValinta.getSelectedItem().toString());
             paPohjaVasen.add(paToka);
         }
     }
 
+    /**
+     * Sisainen tapahtumenkuuntelijaluokka saataa ajastinta.
+     */
     class AlsAjastin implements ActionListener {
 
         @Override
@@ -165,13 +167,15 @@ public class SanastaSanaanGui extends JFrame {
                 timer.stop();
                 jlTimer.setText("00:00:00");
                 naytaTulokset();
-
             }
             SimpleDateFormat df = new SimpleDateFormat("mm:ss:SSS");
             jlTimer.setText(df.format(duration - clockTime));
         }
     }
 
+    /**
+     * Laskee hyvaksytyt sanat.Avaa tulokset sisaltavan JOptionPane paneelin.
+     */
     public void naytaTulokset() {
         String avainsana = jlValittuAvainsana.getText();
         int oikeaMaara = varasto.sanakirja.laskeSanalista(avainsana);
@@ -180,13 +184,14 @@ public class SanastaSanaanGui extends JFrame {
         JOptionPane.showMessageDialog(null, teksti, "Sanasta sanaan-tulokset", JOptionPane.INFORMATION_MESSAGE);
     }
 
+    /**
+     * Luo ja avaa ohjelman graafisen kayttoliittyman.
+     *
+     * @param args Unused.
+     * @throws IOException if stream to a File cannot be written to or closed.
+     */
     public static void main(String[] args) throws IOException {
         SanastaSanaanGui akkuna = new SanastaSanaanGui();
         akkuna.setVisible(true);
-        Sanavarasto varasto = new Sanavarasto();
-        System.out.println("sanalista: " + varasto.sanakirja.annaSanalista("TESTI"));
-        System.out.println("laske: " + varasto.sanakirja.laskeSanalista("TESTI"));
-        varasto.lueTiedostot();
-        System.out.println("avainsanat: " + varasto.sanakirja.annaAvainsanat());
     }
 }

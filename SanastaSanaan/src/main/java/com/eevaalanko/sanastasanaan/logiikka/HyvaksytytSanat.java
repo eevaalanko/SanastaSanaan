@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 /**
- *
+ * Logiikkaluokka hyvaksytytSanat tarkistaa ja tallettaa keyttajan syottamat sanat.
  * @author Eeva
  */
 public class HyvaksytytSanat {
@@ -21,8 +21,8 @@ public class HyvaksytytSanat {
 
 
     /**
-     * Alustaa uuden Sanavarasto-luokan ilmentyman varasto Alustaa listan
-     * ArrayList hyvaksytyt
+     * Alustaa uuden Sanavarasto-luokan ilmentyman varasto. Alustaa listan
+     * ArrayList hyvaksytyt.
      *
      * @param avainsana asettaa alkuarvon Stringille avainsana
      */
@@ -87,7 +87,7 @@ public class HyvaksytytSanat {
     }
 
     /**
-     * Tyhjentaa ArrayListin Hyvaksytyt
+     * Tyhjentaa ArrayListin Hyvaksytyt.
      */
     public void poistaSanat() {
         this.hyvaksytyt.clear();

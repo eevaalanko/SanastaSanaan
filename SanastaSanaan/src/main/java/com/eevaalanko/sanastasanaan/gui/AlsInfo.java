@@ -7,14 +7,19 @@ package com.eevaalanko.sanastasanaan.gui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 import javax.swing.JOptionPane;
 
-class AlsInfo implements ActionListener {
+/**
+ * Luokka AlsInfo implementoi tapahtumankuuntelijaluokkaa ActionListener ja nayttaa peliohjeet.
+ *
+ * @author Eeva
+ */
+public class AlsInfo implements ActionListener {
 
-    public AlsInfo() throws IOException {
-        super();
-    }
+    /**
+     * Avaa peliohjeen sisaltavan JOptionPane paneelin.
+     * @param e
+     */
 
     @Override
     public void actionPerformed(ActionEvent e) {

@@ -15,22 +15,31 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
+ * Sanavarasto lukee sanat tekstitiedostoista ja lisaa ne sanakirjaolion
+ * sanakirja HashMapiin.
  *
  * @author Eeva
  */
 public class Sanavarasto {
 
     /**
-     *
+     * Sanakirja-luokan ilmentyma sanakirja.
      */
     public Sanakirja sanakirja = new Sanakirja();
-   
 
+    /**
+     * Konstruktori toteuttaa luokan metodin lueTiedotot().
+     */
     public Sanavarasto() {
         this.lueTiedostot();
-
     }
 
+    /**
+     * Metodi lukee sanat tekstitiedostoista, lisaa jokaisen tiedoston nimen
+     * avaimeksi ja sisallon listan muodossa arvoksi Sanakirja-luokan ilmentyman
+     * sanakirja HashMapiin.
+     *
+     */
     public void lueTiedostot() {
         File[] files = new File("sanavarasto").listFiles();
         for (File file : files) {
@@ -42,12 +51,10 @@ public class Sanavarasto {
                 for (String line = in.readLine(); line != null; line = in.readLine()) {
                     String[] sanat = line.split("\\s+");
                     lista.addAll(Arrays.asList(sanat));
-//                   System.out.println("lista: " + lista.toString());
                 }
                 in.close();
             } catch (IOException e) {
                 System.exit(1);
-
             }
             String fileName = file.getName();
             fileName = fileName.substring(0, fileName.lastIndexOf("."));
