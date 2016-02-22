@@ -53,6 +53,16 @@
 
 :clock10: *4 tuntia*
 
+#23.2. 2016
+- luokkien sanahaku ja JFpelialusta lisäys
+- nykysuomen sanaston sisältävän xml-filun lisäys
+- guin päivitys
+- yleistä muokkailua luokisaa ja testeissä
+- dokumentoinnin päivitys ajan tasalle
+
+:clock10: *8 tuntia*
+
+
 
 
 
