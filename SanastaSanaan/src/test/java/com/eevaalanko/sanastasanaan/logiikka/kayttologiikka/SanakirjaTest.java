@@ -3,19 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.eevaalanko.sanastasanaan.logiikka;
+package com.eevaalanko.sanastasanaan.logiikka.kayttologiikka;
 
+import com.eevaalanko.sanastasanaan.logiikka.kayttologiikka.Sanakirja;
 import java.util.ArrayList;
 import java.util.Arrays;
-
-import java.util.Collection;
 import java.util.List;
-import org.junit.After;
-import org.junit.AfterClass;
-
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.junit.Before;
 import org.junit.BeforeClass;
 
 /**
@@ -37,18 +32,6 @@ public class SanakirjaTest {
         sanakirja.lisaaSanalista("test2", tyhjaLista);
         sanakirja.lisaaSanalista("test", lista);
 
-    }
-
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
-
-    @Before
-    public void setUp() throws Exception {
-    }
-
-    @After
-    public void tearDown() throws Exception {
     }
 
     /**

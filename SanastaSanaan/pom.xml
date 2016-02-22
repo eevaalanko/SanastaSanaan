@@ -44,12 +44,10 @@
                 <version>1.1.8</version>
                 <configuration>
                     <targetClasses>
-                        <param>com.eevaalanko.sanastasanaan.logiikka.*</param>
-                        <param>com.eevaalanko.sanastasanaan.tietovarasto.*</param>                     
+                        <param>com.eevaalanko.sanastasanaan.logiikka.*</param>                   
                     </targetClasses>
                     <targetTests>
-                        <param>com.eevaalanko.sanastasanaan.logiikka.*</param>
-                        <param>com.eevaalanko.sanastasanaan.tietovarasto.*</param>                     
+                        <param>com.eevaalanko.sanastasanaan.logiikka.*</param>                  
                     </targetTests>
                 </configuration>
             </plugin>          

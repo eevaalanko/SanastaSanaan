@@ -3,11 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.eevaalanko.sanastasanaan.logiikka;
+package com.eevaalanko.sanastasanaan.logiikka.kayttologiikka;
 
-import com.eevaalanko.sanastasanaan.tietovarasto.Sanavarasto;
+import com.eevaalanko.sanastasanaan.logiikka.tietovarasto.Sanavarasto;
 import java.util.ArrayList;
-import java.util.Collection;
 
 /**
  * Logiikkaluokka hyvaksytytSanat tarkistaa ja tallettaa keyttajan syottamat sanat.
@@ -25,11 +24,16 @@ public class HyvaksytytSanat {
      * ArrayList hyvaksytyt.
      *
      * @param avainsana asettaa alkuarvon Stringille avainsana
+     * @param varasto syotteena tutkittava sanavarasto
      */
-    public HyvaksytytSanat(String avainsana) {
-        varasto = new Sanavarasto();
+    public HyvaksytytSanat(String avainsana, Sanavarasto varasto)  {
         hyvaksytyt = new ArrayList<>();
+        this.varasto = varasto;
         this.avainsana = avainsana;
+    }
+
+    public HyvaksytytSanat(String vaaraSana) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**

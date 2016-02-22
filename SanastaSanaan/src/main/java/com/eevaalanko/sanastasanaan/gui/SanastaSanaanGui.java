@@ -5,8 +5,10 @@
  */
 package com.eevaalanko.sanastasanaan.gui;
 
-import com.eevaalanko.sanastasanaan.logiikka.HyvaksytytSanat;
-import com.eevaalanko.sanastasanaan.tietovarasto.Sanavarasto;
+import com.eevaalanko.sanastasanaan.logiikka.kayttologiikka.HyvaksytytSanat;
+import com.eevaalanko.sanastasanaan.logiikka.tietovarasto.Sanavarasto;
+import static com.eevaalanko.sanastasanaan.logiikka.tietovarasto.Sanavarasto.*;
+import static com.eevaalanko.sanastasanaan.logiikka.tietovarasto.Sanahaku.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -14,6 +16,9 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import javax.swing.JFrame;
+import javax.xml.parsers.ParserConfigurationException;
+import org.w3c.dom.Node;
+import org.xml.sax.SAXException;
 
 /**
  * Ohjelman SanastaSanaan graafinen kayttoliittyma.
@@ -43,7 +48,7 @@ public class SanastaSanaanGui extends JFrame {
     private final JPanel paToka = new JPanel(new FlowLayout(FlowLayout.LEFT));
     private final JPanel paKolmas = new JPanel(new FlowLayout(FlowLayout.LEFT));
     private final JPanel paNeljas = new JPanel(new FlowLayout(FlowLayout.LEFT));
-    private final JPanel paPohjaVasen = new JPanel(new GridLayout(3, 1)); 
+    private final JPanel paPohjaVasen = new JPanel(new GridLayout(3, 1));
     private final JPanel paPohjaOikea = new JPanel(new GridLayout(1, 0));
     private final JPanel paAlusta = new JPanel(new GridLayout(0, 2));
     private final JButton btAloita = new JButton("Aloita peli.");
@@ -54,7 +59,7 @@ public class SanastaSanaanGui extends JFrame {
     private final JLabel jlValittuAvainsana = new JLabel();
     public JLabel jlTimer = new JLabel("00:00:00");
     public Object[] avainlista;
-    private  JComboBox cbValinta;
+    private JComboBox cbValinta;
     private final JFormattedTextField tfSana = new JFormattedTextField();
     private final TextArea taHyvaksytyt = new TextArea();
     public Timer timer;
@@ -68,7 +73,8 @@ public class SanastaSanaanGui extends JFrame {
      *
      * @throws IOException if stream to aFile cannot be written to or closed.
      */
-    public SanastaSanaanGui() throws IOException {
+    public SanastaSanaanGui() throws IOException, ParserConfigurationException, SAXException {
+        varasto.hae();
         avainlista = varasto.sanakirja.annaAvainsanat();
         cbValinta = new JComboBox(avainlista);
         this.cbValinta.setPreferredSize(new Dimension(150, 24));
@@ -127,7 +133,7 @@ public class SanastaSanaanGui extends JFrame {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            String sana = tfSana.getText();         
+            String sana = tfSana.getText();
             boolean ok = hyvaksytyt.lisaaSana(sana);
             if (ok) {
                 taHyvaksytyt.append(sana + "\n");
@@ -142,12 +148,14 @@ public class SanastaSanaanGui extends JFrame {
      */
     class AlsAloita implements ActionListener {
 
+        JFrame peliframe = new JFrame();
+
         @Override
         public void actionPerformed(ActionEvent e) {
             timer.start();
             String avainsana = cbValinta.getSelectedItem().toString();
             jlValittuAvainsana.setText(avainsana);
-            hyvaksytyt = new HyvaksytytSanat(avainsana);
+            hyvaksytyt = new HyvaksytytSanat(avainsana, varasto);
             paPohjaVasen.add(paToka);
         }
     }
@@ -191,9 +199,32 @@ public class SanastaSanaanGui extends JFrame {
      *
      * @param args Unused.
      * @throws IOException if stream to a File cannot be written to or closed.
+     * @throws javax.xml.parsers.ParserConfigurationException
+     * @throws org.xml.sax.SAXException
      */
-    public static void main(String[] args) throws IOException {
-        SanastaSanaanGui akkuna = new SanastaSanaanGui();
-        akkuna.setVisible(true);
+    public static void main(String[] args) throws IOException, ParserConfigurationException, SAXException {
+//        SanastaSanaanGui akkuna = new SanastaSanaanGui();
+//        akkuna.setVisible(true);
+//        Node lista = haeNodelista();
+//        int pituus = laskePituus(lista);
+//        System.out.println("pituus: " + pituus);
+//        System.out.println(""+ haeSanalista("öylätti", lista).toString());
+
+        Sanavarasto v = new Sanavarasto();
+        v.haeAnnetullaSanalla("öylätti");
+        String test = null;
+        Object[] o = v.sanakirja.annaAvainsanat();
+        for (Object i :o){
+            test+=i;
+        }
+        System.out.println(""+test);  
+
+
+
+
+
+////      Sanavertailu sv = new Sanavertailu();
+////      sv.luoSanataulu("testi");
+////      sv.vertaaTauluja(new int[]{1,23}, new int[]{1,23});
     }
 }

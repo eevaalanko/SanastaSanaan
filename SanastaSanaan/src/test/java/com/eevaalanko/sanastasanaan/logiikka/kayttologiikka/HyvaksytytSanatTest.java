@@ -3,13 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.eevaalanko.sanastasanaan.logiikka;
+package com.eevaalanko.sanastasanaan.logiikka.kayttologiikka;
 
-import com.eevaalanko.sanastasanaan.tietovarasto.Sanavarasto;
+import com.eevaalanko.sanastasanaan.logiikka.tietovarasto.Sanavarasto;
+import java.io.IOException;
 import java.util.ArrayList;
+import javax.xml.parsers.ParserConfigurationException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.Before;
+import org.xml.sax.SAXException;
 
 /**
  *
@@ -22,14 +25,16 @@ public class HyvaksytytSanatTest {
     static HyvaksytytSanat instance;
 
     @Before
-    public void setUp() {
-        instance = new HyvaksytytSanat("TESTI");
-        instance.lisaaSana("te");
+    public void setUp() throws ParserConfigurationException, SAXException, IOException  {
+        varasto = new Sanavarasto();
+        varasto.haeAnnetullaSanalla("öylätti");
+        instance = new HyvaksytytSanat("öylätti", varasto);
+        instance.lisaaSana("lätti");
     }
 
     @Test
     public void testTarkistaOikeaSana() {
-        boolean b = instance.tarkistaSana("te");
+        boolean b = instance.tarkistaSana("itä");
         assertEquals(b, true);
     }
 
@@ -41,20 +46,20 @@ public class HyvaksytytSanatTest {
 
     @Test
     public void testTarkistaVaaraAvainsana() {
-        HyvaksytytSanat instance2 = new HyvaksytytSanat("vaaraSana");
+        HyvaksytytSanat instance2 = new HyvaksytytSanat("vaaraSana",varasto);
         boolean b = instance2.tarkistaSana("sana");
         assertEquals(b, false);
     }
 
     @Test
     public void testLisaaSana() {
-        boolean b = instance.lisaaSana("se");
+        boolean b = instance.lisaaSana("itä");
         assertEquals(b, true);
     }
 
     @Test
     public void testLisaaLisattySana() {
-        boolean b = instance.lisaaSana("te");
+        boolean b = instance.lisaaSana("lätti");
         assertEquals(b, false);
     }
 
@@ -66,13 +71,13 @@ public class HyvaksytytSanatTest {
 
     @Test
     public void testOnJoLisatty() {
-        boolean b = instance.onJoLisatty("te");
+        boolean b = instance.onJoLisatty("lätti");
         assertEquals(b, true);
     }
 
     @Test
     public void testEiOleLisatty() {
-        boolean b = instance.onJoLisatty("se");
+        boolean b = instance.onJoLisatty("itä");
         assertEquals(b, false);
     }
 

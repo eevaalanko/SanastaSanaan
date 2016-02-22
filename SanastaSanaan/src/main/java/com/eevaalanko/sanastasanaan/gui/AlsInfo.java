@@ -18,7 +18,7 @@ public class AlsInfo implements ActionListener {
 
     /**
      * Avaa peliohjeen sisaltavan JOptionPane paneelin.
-     * @param e
+     * @param e unused
      */
 
     @Override
