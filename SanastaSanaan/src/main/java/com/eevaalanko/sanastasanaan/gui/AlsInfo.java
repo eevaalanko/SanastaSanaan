@@ -25,8 +25,8 @@ public class AlsInfo implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         String teksti = "Muodosta mahdollisimman monta eri sanaa avainsanan kirjaimista ennen kuin aika loppuu.\n"
                 + "Mitä enemmän sanoja, sen enemmän pisteitä.\n"
-                + "Sanojen tulee olla suomenkielisiä ja perusmuodossa, yksikössä tai monikossa. \n"
-                + "Erisnimet ja yhdyssanat eivät kelpaa.";
+                + "Sanojen tulee olla suomenkielisiä ja perusmuodossa ja yksikössä.\n"
+                + "Erisnimet eivät kelpaa.";
         JOptionPane.showMessageDialog(null, teksti, "Sanasta sanaan- peliohjeet", JOptionPane.INFORMATION_MESSAGE);
 
     }

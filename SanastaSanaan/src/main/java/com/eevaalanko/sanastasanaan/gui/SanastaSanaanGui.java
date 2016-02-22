@@ -7,8 +7,6 @@ package com.eevaalanko.sanastasanaan.gui;
 
 import com.eevaalanko.sanastasanaan.logiikka.kayttologiikka.HyvaksytytSanat;
 import com.eevaalanko.sanastasanaan.logiikka.tietovarasto.Sanavarasto;
-import static com.eevaalanko.sanastasanaan.logiikka.tietovarasto.Sanavarasto.*;
-import static com.eevaalanko.sanastasanaan.logiikka.tietovarasto.Sanahaku.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -17,7 +15,6 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import javax.swing.JFrame;
 import javax.xml.parsers.ParserConfigurationException;
-import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
 
 /**
@@ -36,32 +33,24 @@ public class SanastaSanaanGui extends JFrame {
      * ja ajan keston asetus. Pudotusvalikko sisaltaa avainsanat.
      *
      */
+    public JFpelialusta peli;
     private final Sanavarasto varasto = new Sanavarasto();
     private final AlsInfo ai = new AlsInfo();
     public HyvaksytytSanat hyvaksytyt;
-    private final Color cEka = new Color(122, 187, 203);
-    private final Color cToka = new Color(0, 204, 204);
-    private final Color cKolmas = new Color(150, 159, 161);
-    private final Color cNeljas = new Color(0, 128, 128);
-    private final Color cViides = new Color(51, 255, 255);
-    private final JPanel paEka = new JPanel(new FlowLayout(FlowLayout.LEFT));
-    private final JPanel paToka = new JPanel(new FlowLayout(FlowLayout.LEFT));
-    private final JPanel paKolmas = new JPanel(new FlowLayout(FlowLayout.LEFT));
-    private final JPanel paNeljas = new JPanel(new FlowLayout(FlowLayout.LEFT));
-    private final JPanel paPohjaVasen = new JPanel(new GridLayout(3, 1));
-    private final JPanel paPohjaOikea = new JPanel(new GridLayout(1, 0));
-    private final JPanel paAlusta = new JPanel(new GridLayout(0, 2));
-    private final JButton btAloita = new JButton("Aloita peli.");
-    private final JButton btLisaaSana = new JButton("Lisää sana");
+    public Color cEka = new Color(122, 187, 203);
+    public Color cToka = new Color(0, 204, 204);
+    public Color cKolmas = new Color(150, 159, 161);
+    public Color cNeljas = new Color(0, 128, 128);
+    public Color cViides = new Color(51, 255, 255);
+    public JPanel paEka = new JPanel(new FlowLayout(FlowLayout.LEFT));
+    public JPanel paToka = new JPanel(new FlowLayout(FlowLayout.LEFT));
+    public JPanel paPohja = new JPanel(new GridLayout(2, 1));
+    public JButton btAloita = new JButton("Aloita peli.");
     public JButton btInfo = new JButton("OHJEET");
-    private final JLabel jlPisteet = new JLabel("Amat victoria curam.");
-    private final JLabel jlEka = new JLabel("Valitse avainsana:            ");
-    private final JLabel jlValittuAvainsana = new JLabel();
-    public JLabel jlTimer = new JLabel("00:00:00");
+    public JLabel jlValitus = new JLabel("Amat victoria curam.");
+    public JLabel jlEka = new JLabel("Valitse avainsana:            ");
     public Object[] avainlista;
-    private JComboBox cbValinta;
-    private final JFormattedTextField tfSana = new JFormattedTextField();
-    private final TextArea taHyvaksytyt = new TextArea();
+    public JComboBox cbValinta;
     public Timer timer;
     public long startTime = -1;
     public long duration = 100000;
@@ -78,7 +67,7 @@ public class SanastaSanaanGui extends JFrame {
         avainlista = varasto.sanakirja.annaAvainsanat();
         cbValinta = new JComboBox(avainlista);
         this.cbValinta.setPreferredSize(new Dimension(150, 24));
-        this.tfSana.setPreferredSize(new Dimension(200, 24));
+
         this.timer = new Timer(10, (ActionListener) new AlsAjastin());
         this.setSize(200, 200);
         this.setTitle("Sanasta sanaan");
@@ -88,41 +77,30 @@ public class SanastaSanaanGui extends JFrame {
     }
 
     /**
-     * Metodi asettelee komponentit Jpanel alustaan. Asettaa alustan JFrame'iin.
-     * Asettaa JFrame'ille standardikoon. Lisaa tapahtumankuuntelijat
-     * painikkeisiin.
+     * Metodi asettelee komponentit Jpanel alustaanja asettaa alustan JFrame
+     * SanastaSanaanGuihin. Asettaa JFrame'ille standardikoon. Lisaa
+     * tapahtumankuuntelijat painikkeisiin. Lisaa vareja elementteihin.
      */
     public void asetteleKomponentit() {
         paEka.add(jlEka);
         paEka.add(cbValinta);
         paEka.add(btAloita);
-        paToka.add(tfSana);
-        paToka.add(btLisaaSana);
-        paKolmas.add(jlPisteet);
-        paKolmas.add(btInfo);
-        paNeljas.add(jlTimer);
-        paNeljas.add(jlValittuAvainsana);
-        paNeljas.add(taHyvaksytyt);
-        paPohjaVasen.add(paEka);
-        paPohjaVasen.add(paKolmas);
-        paPohjaVasen.add(paKolmas);
-        paPohjaOikea.add(paNeljas);
+        paToka.add(jlValitus);
+        paToka.add(btInfo);
+        paPohja.add(paEka);
+        paPohja.add(paToka);
         paEka.setBackground(cEka);
         paToka.setBackground(cToka);
-        paKolmas.setBackground(cKolmas);
-        paNeljas.setBackground(cNeljas);
         cbValinta.setBackground(cToka);
-        btLisaaSana.setBackground(cEka);
-        btInfo.setBackground(cViides);
-        jlTimer.setBackground(cEka);
-        jlTimer.setForeground(Color.white);
-        jlValittuAvainsana.setForeground(Color.yellow);
-        paAlusta.add(paPohjaVasen);
-        paAlusta.add(paPohjaOikea);
-        this.add(paAlusta);
+        cbValinta.setForeground(Color.WHITE);
+        btInfo.setBackground(cNeljas);
+        btInfo.setForeground(Color.WHITE);
+        btAloita.setBackground(cViides);
+        jlValitus.setForeground(Color.yellow);
+        jlEka.setForeground(Color.yellow);
+        this.add(paPohja);
         this.setSize(620, 350);
         btAloita.addActionListener(new AlsAloita());
-        btLisaaSana.addActionListener(new AlsLisaaSana());
         btInfo.addActionListener(ai);
     }
 
@@ -133,30 +111,35 @@ public class SanastaSanaanGui extends JFrame {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            String sana = tfSana.getText();
+            String sana = peli.tfSana.getText();
             boolean ok = hyvaksytyt.lisaaSana(sana);
             if (ok) {
-                taHyvaksytyt.append(sana + "\n");
+                peli.taHyvaksytyt.append(sana + "\n");
             }
-            tfSana.setText("");
+            peli.tfSana.setText("");
+            Cursor cursor = new Cursor(0);
+            peli.tfSana.setCursor(cursor);
+
         }
     }
 
     /**
-     * Sisainen tapahtumenkuuntelijaluokka kaynnistaa ajastimen ja lisaa
-     * sanojenlisayspaneelin peliin.
+     * Sisainen tapahtumenkuuntelijaluokka kaynnistaa ajastimen ja luo uuden
+     * peliframen.
      */
     class AlsAloita implements ActionListener {
 
-        JFrame peliframe = new JFrame();
-
         @Override
         public void actionPerformed(ActionEvent e) {
+            peli = new JFpelialusta();
+            peli.setSize(620, 350);
+            peli.btLisaaSana.addActionListener(new AlsLisaaSana());
+            peli.tfSana.addActionListener(new AlsLisaaSana());
             timer.start();
             String avainsana = cbValinta.getSelectedItem().toString();
-            jlValittuAvainsana.setText(avainsana);
+            peli.jlValittuAvainsana.setText(avainsana);
             hyvaksytyt = new HyvaksytytSanat(avainsana, varasto);
-            paPohjaVasen.add(paToka);
+            peli.setVisible(true);
         }
     }
 
@@ -175,11 +158,11 @@ public class SanastaSanaanGui extends JFrame {
             if (clockTime >= duration) {
                 clockTime = duration;
                 timer.stop();
-                jlTimer.setText("00:00:00");
+                peli.jlTimer.setText("00:00:00");
                 naytaTulokset();
             }
             SimpleDateFormat df = new SimpleDateFormat("mm:ss:SSS");
-            jlTimer.setText(df.format(duration - clockTime));
+            peli.jlTimer.setText(df.format(duration - clockTime));
         }
     }
 
@@ -187,7 +170,7 @@ public class SanastaSanaanGui extends JFrame {
      * Laskee hyvaksytyt sanat.Avaa tulokset sisaltavan JOptionPane paneelin.
      */
     public void naytaTulokset() {
-        String avainsana = jlValittuAvainsana.getText();
+        String avainsana = peli.jlValittuAvainsana.getText();
         int oikeaMaara = varasto.sanakirja.laskeSanalista(avainsana);
         int saatuMaara = hyvaksytyt.laskeSanat();
         String teksti = "Tuloksesi: " + saatuMaara + "/" + oikeaMaara;
@@ -203,28 +186,7 @@ public class SanastaSanaanGui extends JFrame {
      * @throws org.xml.sax.SAXException
      */
     public static void main(String[] args) throws IOException, ParserConfigurationException, SAXException {
-//        SanastaSanaanGui akkuna = new SanastaSanaanGui();
-//        akkuna.setVisible(true);
-//        Node lista = haeNodelista();
-//        int pituus = laskePituus(lista);
-//        System.out.println("pituus: " + pituus);
-//        System.out.println(""+ haeSanalista("öylätti", lista).toString());
-
-        Sanavarasto v = new Sanavarasto();
-        v.haeAnnetullaSanalla("öylätti");
-        String test = null;
-        Object[] o = v.sanakirja.annaAvainsanat();
-        for (Object i :o){
-            test+=i;
-        }
-        System.out.println(""+test);  
-
-
-
-
-
-////      Sanavertailu sv = new Sanavertailu();
-////      sv.luoSanataulu("testi");
-////      sv.vertaaTauluja(new int[]{1,23}, new int[]{1,23});
+        SanastaSanaanGui akkuna = new SanastaSanaanGui();
+        akkuna.setVisible(true);
     }
 }
