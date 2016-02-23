@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 public class HyvaksytytSanat {
 
-    Sanavarasto varasto;
+    public Sanavarasto varasto;
     public String avainsana;
     public ArrayList<String> hyvaksytyt;
 
@@ -30,10 +30,6 @@ public class HyvaksytytSanat {
         hyvaksytyt = new ArrayList<>();
         this.varasto = varasto;
         this.avainsana = avainsana;
-    }
-
-    public HyvaksytytSanat(String vaaraSana) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**

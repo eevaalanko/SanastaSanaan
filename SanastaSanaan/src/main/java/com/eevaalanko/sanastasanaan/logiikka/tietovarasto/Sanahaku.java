@@ -91,9 +91,9 @@ public final class Sanahaku {
         int[] avaintaulu = luoSanataulu(avainsana);
         String sana;
         for (int i = 0; i < pituus; i++) {
-            Node N = nodelista.getChildNodes().item(i).getChildNodes().item(0);
-            if (N != null) {
-                sana = N.getTextContent();
+            Node node = nodelista.getChildNodes().item(i).getChildNodes().item(0);
+            if (node != null) {
+                sana = node.getTextContent();
                 int[] sanataulu = luoSanataulu(sana);
                 boolean b = vertaaTauluja(avaintaulu, sanataulu);
                 if (b) {

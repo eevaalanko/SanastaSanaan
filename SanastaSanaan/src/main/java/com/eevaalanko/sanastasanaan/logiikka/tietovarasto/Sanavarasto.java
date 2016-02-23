@@ -38,7 +38,7 @@ public class Sanavarasto {
     }
 
     /**
-     * Metodi hakee kaikki sanat sisaltavan noden xml-tiedostosta,
+     * Metodi hakee kaikki sanat sisaltavan noden xml-tiedostosta.
      *
      * @throws ParserConfigurationException Indicates a serious configuration error
      * @throws SAXException basic error or warning information from either the
