@@ -23,7 +23,7 @@ import org.xml.sax.SAXException;
  *
  * @author Eeva
  */
-public class SanastaSanaanGui extends JFrame {
+public class Main extends JFrame {
 
     /**
      * Luokkien Sanavarasto, HyvaksytytSanat ja AlsInfo- ilmentymien alustus.
@@ -59,7 +59,7 @@ public class SanastaSanaanGui extends JFrame {
      * @throws java.io.IOException if stream to a File cannot be written to or
      * closed
      */
-    public SanastaSanaanGui() throws IOException, ParserConfigurationException, SAXException {
+    public Main() throws IOException, ParserConfigurationException, SAXException {
         varasto.hae();
         avainlista = varasto.sanakirja.annaAvainsanat();
         cbValinta = new JComboBox(avainlista);
@@ -130,7 +130,7 @@ public class SanastaSanaanGui extends JFrame {
      * closed
      */
     public static void main(String[] args) throws IOException, ParserConfigurationException, SAXException {
-        SanastaSanaanGui akkuna = new SanastaSanaanGui();
+        Main akkuna = new Main();
         akkuna.setVisible(true);
     }
 }
