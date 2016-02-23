@@ -1,3 +1,5 @@
+##Sanasta sanaan- pelin käyttöohjeet##
+
 -	Lue ensin peliohjeet painamalla OHJEET-painiketta. (Peliohjeet: Muodosta mahdollisimman monta eri sanaa avainsanan kirjaimista ennen kuin aika loppuu. Mitä enemmän sanoja, sen enemmän pisteitä. Sanojen tulee olla suomenkielisiä ja perusmuodossa ja yksikössä. Erisnimet eivät kelpaa.)
 -	Valitse avainsana pudotusvalikosta.
 -	Paina ALOITA PELI- painiketta. Pelipaneeli avautuu.
