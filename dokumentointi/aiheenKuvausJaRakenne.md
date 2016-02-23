@@ -3,7 +3,7 @@
 
 ##Aihe
 
-*Harjoitustyön aiheena on yksinkertainen sanapeli nimeltä sanasta sanaan. Siinä pitemmän alkusanan kirjaimista muodostetaan mahdollisimman monta perusmuodossa olevaa suomenkielistä sanaa. Erisnimet ja yhdyssanat eivät ole sallittuja. Pisteitä saa 1/sana.*
+*Harjoitustyön aiheena on yksinkertainen sanapeli nimeltä sanasta sanaan. Siinä pitemmän alkusanan kirjaimista muodostetaan mahdollisimman monta perusmuodossa olevaa suomenkielistä sanaa. Erisnimet eivät ole sallittuja. Pisteitä saa 1/sana.*
 
 ##Käyttäjät
 ####Pelaaja
