@@ -4,5 +4,5 @@
 -	Valitse avainsana pudotusvalikosta.
 -	Paina ALOITA PELI- painiketta. Pelipaneeli avautuu.
 -	Syötä sanoja tekstikenttään peliohjeiden mukaisesti. Validoi ne painamalla Enteriä tai LISÄÄ SANA-nappia. 
--	Kun aika loppuu, näet tuloksesi avautuvasta paneelista. Sulje paneeli yläkulman ristinäppäimestä. Sulje myös pelipaneeli samalla tavalla.
+-	Kun aika loppuu, näet tuloksesi avautuvasta paneelista. Sulje paneeli oikean yläkulman ristinäppäimestä. Sulje myös pelipaneeli samalla tavalla.
 -	Voit jatkaa pelaamista valitsemalla uuden sanan tai lopettaa pelaamisen yläkulman rististä.
