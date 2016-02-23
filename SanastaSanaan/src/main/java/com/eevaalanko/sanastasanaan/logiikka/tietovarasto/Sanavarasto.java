@@ -31,7 +31,8 @@ public class Sanavarasto {
     public Sanakirja sanakirja;
 
     /**
-     * Konstruktori.
+     * Konstruktori alustaa Sanakirjaluokan ilmentyman sanakirjan, jota
+     * kaytetaan sanojen varastoimiseen.
      */
     public Sanavarasto() {
         sanakirja = new Sanakirja();
@@ -40,7 +41,8 @@ public class Sanavarasto {
     /**
      * Metodi hakee kaikki sanat sisaltavan noden xml-tiedostosta.
      *
-     * @throws ParserConfigurationException Indicates a serious configuration error
+     * @throws ParserConfigurationException Indicates a serious configuration
+     * error
      * @throws SAXException basic error or warning information from either the
      * XML parser or the application
      * @throws java.io.IOException if stream to a File cannot be written to or
@@ -64,10 +66,12 @@ public class Sanavarasto {
      * haetun sanalistan arvoksi Sanakirja-luokan ilmentyman sanakirja
      * HashMapiin.
      *
-     * @throws javax.xml.parsers.ParserConfigurationException Indicates a serious configuration error
-     * @throws org.xml.sax.SAXException basic error or warning information from either the
-     * XML parser or the application
-     * @throws java.io.IOException if stream to a File cannot be written to or closed
+     * @throws javax.xml.parsers.ParserConfigurationException Indicates a
+     * serious configuration error
+     * @throws org.xml.sax.SAXException basic error or warning information from
+     * either the XML parser or the application
+     * @throws java.io.IOException if stream to a File cannot be written to or
+     * closed
      */
     public void hae() throws ParserConfigurationException, SAXException, IOException {
         Node nodelista = haeNodelista();
@@ -76,9 +80,6 @@ public class Sanavarasto {
             String avainsana = haeRandomAvainSana(nodelista, pituus);
             ArrayList sanalista = haeSanalista(avainsana, nodelista);
             sanakirja.lisaaSanalista(avainsana, sanalista);
-//            debug
-//            System.out.println("avainsana: " + avainsana);
-//            System.out.println("sanalista: " + sanalista.toString());
         }
     }
 
@@ -87,7 +88,8 @@ public class Sanavarasto {
      * sanalistan arvoksi Sanakirja-luokan ilmentyman sanakirja HashMapiin.
      *
      * @param avainsana syote
-     * @throws ParserConfigurationException Indicates a serious configuration error
+     * @throws ParserConfigurationException Indicates a serious configuration
+     * error
      * @throws SAXException basic error or warning information from either the
      * XML parser or the application
      * @throws IOException if stream to a File cannot be written to or closed
@@ -96,10 +98,6 @@ public class Sanavarasto {
         Node nodelista = haeNodelista();
         ArrayList sanalista = haeSanalista(avainsana, nodelista);
         sanakirja.lisaaSanalista(avainsana, sanalista);
-//            debug
-//            System.out.println("avainsana: " + avainsana);
-//            System.out.println("sanalista: " + sanalista.toString());
-//            System.out.println("pituus:"+ sanakirja.laskeSanalista(avainsana));
     }
 
 }

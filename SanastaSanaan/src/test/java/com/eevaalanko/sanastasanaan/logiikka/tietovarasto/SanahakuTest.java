@@ -52,7 +52,6 @@ public class SanahakuTest {
      */
     @Test
     public void testMinimipituus() {
-        System.out.println("minimipituus");
         String sana = "testisana";
         boolean result = minimipituus(sana, 7);
         assertEquals(true, result);
@@ -60,7 +59,6 @@ public class SanahakuTest {
 
     @Test
     public void testVaaraMinimipituus() {
-        System.out.println("minimipituus");
         String sana = "testi";
         boolean result = minimipituus(sana, 7);
         assertEquals(false, result);
@@ -104,42 +102,41 @@ public class SanahakuTest {
     @Test
     public void testLuoTyhjaSanataulu() {
         int[] sanataulu = luoSanataulu("");
-        int[] oletusarray ={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+        int[] oletusarray = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
         assertArrayEquals(sanataulu, oletusarray);
     }
-     public void testLuoSanataulu() {
+
+    public void testLuoSanataulu() {
         int[] sanataulu = luoSanataulu("abö");
-        int[] oletusarray ={1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1};
+        int[] oletusarray = {1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1};
         assertArrayEquals(sanataulu, oletusarray);
     }
-    
 
     /**
      * Test of vertaaTauluja method, of class Sanahaku.
      */
     @Test
     public void testVertaaTyhjiaTauluja() {
-        System.out.println("vertaaTauluja");
         int[] avainsanataulu = null;
         int[] sanataulu = null;
         boolean result = vertaaTauluja(avainsanataulu, sanataulu);
         assertEquals(false, result);
     }
-        @Test
+
+    @Test
     public void testVertaaVaaranSananTaulua() {
-        System.out.println("vertaaTauluja");
-        int[] avainsanataulu = {0,0,1};
-        int[] sanataulu = {1,0,0};
+        int[] avainsanataulu = {0, 0, 1};
+        int[] sanataulu = {1, 0, 0};
         boolean result = vertaaTauluja(avainsanataulu, sanataulu);
         assertEquals(false, result);
     }
-            @Test
+
+    @Test
     public void testVertaaOikeanSananTaulua() {
-        System.out.println("vertaaTauluja");
-        int[] avainsanataulu = {0,0,1};
-        int[] sanataulu = {0,0,1};
+        int[] avainsanataulu = {0, 0, 1};
+        int[] sanataulu = {0, 0, 1};
         boolean result = vertaaTauluja(avainsanataulu, sanataulu);
         assertEquals(true, result);
     }
-    
+
 }
