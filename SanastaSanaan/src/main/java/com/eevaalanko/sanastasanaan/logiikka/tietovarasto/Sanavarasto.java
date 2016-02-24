@@ -7,12 +7,8 @@ package com.eevaalanko.sanastasanaan.logiikka.tietovarasto;
 
 import com.eevaalanko.sanastasanaan.logiikka.kayttologiikka.Sanakirja;
 import static com.eevaalanko.sanastasanaan.logiikka.tietovarasto.Sanahaku.*;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
-import java.net.URLClassLoader;
 import java.util.ArrayList;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
