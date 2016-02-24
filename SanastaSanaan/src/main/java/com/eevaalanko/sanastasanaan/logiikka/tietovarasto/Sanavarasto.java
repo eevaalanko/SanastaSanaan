@@ -7,8 +7,12 @@ package com.eevaalanko.sanastasanaan.logiikka.tietovarasto;
 
 import com.eevaalanko.sanastasanaan.logiikka.kayttologiikka.Sanakirja;
 import static com.eevaalanko.sanastasanaan.logiikka.tietovarasto.Sanahaku.*;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.net.URLClassLoader;
 import java.util.ArrayList;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -31,6 +35,11 @@ public class Sanavarasto {
     public Sanakirja sanakirja;
 
     /**
+     * Xml-filun sijainti tiedostossa.
+     */
+    private static final String file_location = "src/resources/sanavarasto/kotus-sanalista_v1.xml";
+
+    /**
      * Konstruktori alustaa Sanakirjaluokan ilmentyman sanakirjan, jota
      * kaytetaan sanojen varastoimiseen.
      */
@@ -50,7 +59,7 @@ public class Sanavarasto {
      * @return haettu Node
      */
     public static Node haeNodelista() throws ParserConfigurationException, SAXException, IOException {
-        FileInputStream fis = new FileInputStream("sanavarasto/kotus-sanalista_v1.xml");
+        FileInputStream fis = new FileInputStream(file_location);
         InputSource is = new InputSource(fis);
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         dbFactory.setFeature("http://apache.org/xml/features/nonvalidating/load-dtd-grammar", false);

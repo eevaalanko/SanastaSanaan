@@ -72,7 +72,7 @@ public class Main extends JFrame {
     }
 
     /**
-     * Metodi asettelee komponentit Jpanel alustaanja asettaa alustan JFrame
+     * Metodi asettelee komponentit Jpanel alustaan ja asettaa alustan JFrame
      * SanastaSanaanGuihin. Asettaa JFrame'ille standardikoon. Lisaa
      * tapahtumankuuntelijat painikkeisiin. Lisaa vareja elementteihin.
      */
