@@ -42,7 +42,7 @@ public class Main extends JFrame {
     public JPanel paPohja = new JPanel(new GridLayout(2, 1));
     public JButton btAloita = new JButton("ALOITA PELI");
     public JButton btInfo = new JButton("OHJEET");
-    public JLabel jlValitus = new JLabel("Amat victoria curam.");
+    public JLabel jlInfo = new JLabel("Lue peliohjeet:               ");
     public JLabel jlEka = new JLabel("Valitse avainsana:            ");
     public Object[] avainlista;
     public JComboBox cbValinta;
@@ -80,7 +80,7 @@ public class Main extends JFrame {
         paEka.add(jlEka);
         paEka.add(cbValinta);
         paEka.add(btAloita);
-        paToka.add(jlValitus);
+        paToka.add(jlInfo);
         paToka.add(btInfo);
         paPohja.add(paEka);
         paPohja.add(paToka);
@@ -91,8 +91,8 @@ public class Main extends JFrame {
         btInfo.setBackground(cNeljas);
         btInfo.setForeground(Color.WHITE);
         btAloita.setBackground(cViides);
-        jlValitus.setForeground(Color.yellow);
-        jlValitus.setFont(fEka);
+        jlInfo.setForeground(Color.yellow);
+        jlInfo.setFont(fEka);
         jlEka.setForeground(Color.yellow);
         jlEka.setFont(fEka);
         this.add(paPohja);
