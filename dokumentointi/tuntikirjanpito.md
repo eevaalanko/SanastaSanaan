@@ -62,6 +62,12 @@
 
 :clock10: *8 tuntia*
 
+#24.2. 2016
+- jar-tiedosto luotu, pom paivitetty, projekti tsekattu
+
+:clock10: *3 tuntia*
+
+
 
 
 
