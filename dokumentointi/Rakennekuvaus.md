@@ -1,5 +1,5 @@
 -	**Main**-luokassa luodaan uusi JFrame pelin graafiseksi käyttöliittymäksi ja **Sanavarasto**-luokan ilmentymä *varasto*.
--	*Varasto* hakee avainsanoja (5) ja näistä muodostettavissa olevia sanalistoja xml-tiedosto **kotus-sanalista_v1.xml**:stä
+-	*Varasto* hakee avainsanoja ja näistä muodostettavissa olevia sanalistoja xml-tiedosto **kotus-sanalista_v1.xml**:stä
 käyttäen staattisen luokan Sanahaku metodeja.
 -	*Varasto* tallentaa sanat attribuuttinsa **Sanakirja**-luokan HashMapiin.
 -	**Mainin** sisäinen tapahtumankuuntelijaluokka **AlsAloita** luo uuden Jframe’in **JFpelialusta** *pelin*. *Pelin* konstruktori luo
