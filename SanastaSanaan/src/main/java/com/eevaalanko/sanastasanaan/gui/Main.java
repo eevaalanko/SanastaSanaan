@@ -60,7 +60,7 @@ public class Main extends JFrame {
      * closed
      */
     public Main() throws IOException, ParserConfigurationException, SAXException {
-        varasto.hae();
+        varasto.hae(5);
         avainlista = varasto.sanakirja.annaAvainsanat();
         cbValinta = new JComboBox(avainlista);
         this.cbValinta.setPreferredSize(new Dimension(150, 24));
@@ -131,6 +131,6 @@ public class Main extends JFrame {
      */
     public static void main(String[] args) throws IOException, ParserConfigurationException, SAXException {
         Main akkuna = new Main();
-        akkuna.setVisible(true);
+        akkuna.setVisible(true);       
     }
 }

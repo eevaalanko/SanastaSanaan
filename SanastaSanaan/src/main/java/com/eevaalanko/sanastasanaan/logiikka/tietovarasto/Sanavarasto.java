@@ -67,9 +67,8 @@ public class Sanavarasto {
     }
 
     /**
-     * Metodi hakee viisi sanaa xml-tiedostosta,lisaa ne avaimiksi ja lisaa
-     * haetun sanalistan arvoksi Sanakirja-luokan ilmentyman sanakirja
-     * HashMapiin.
+     * Metodi hakee sanan xml-tiedostosta,lisaa ne avaimiksi ja lisaa haetun
+     * sanalistan arvoksi Sanakirja-luokan ilmentyman sanakirja HashMapiin.
      *
      * @throws javax.xml.parsers.ParserConfigurationException Indicates a
      * serious configuration error
@@ -81,7 +80,28 @@ public class Sanavarasto {
     public void hae() throws ParserConfigurationException, SAXException, IOException {
         Node nodelista = haeNodelista();
         int pituus = laskePituus(nodelista);
-        for (int i = 0; i < 5; i++) {
+        String avainsana = haeRandomAvainSana(nodelista, pituus);
+        ArrayList sanalista = haeSanalista(avainsana, nodelista);
+        sanakirja.lisaaSanalista(avainsana, sanalista);
+    }
+
+    /**
+     * Metodi hakee viisi sanaa xml-tiedostosta,lisaa ne avaimiksi ja lisaa
+     * haetun sanalistan arvoksi Sanakirja-luokan ilmentyman sanakirja
+     * HashMapiin.
+     *
+     * @param maara haluttujen avainsabojen maara syotteena
+     * @throws javax.xml.parsers.ParserConfigurationException Indicates a
+     * serious configuration error
+     * @throws org.xml.sax.SAXException basic error or warning information from
+     * either the XML parser or the application
+     * @throws java.io.IOException if stream to a File cannot be written to or
+     * closed
+     */
+    public void hae(int maara) throws ParserConfigurationException, SAXException, IOException {
+        Node nodelista = haeNodelista();
+        int pituus = laskePituus(nodelista);
+        for (int i = 0; i < maara; i++) {
             String avainsana = haeRandomAvainSana(nodelista, pituus);
             ArrayList sanalista = haeSanalista(avainsana, nodelista);
             sanakirja.lisaaSanalista(avainsana, sanalista);

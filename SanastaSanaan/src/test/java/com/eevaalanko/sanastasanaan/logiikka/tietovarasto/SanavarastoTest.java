@@ -50,16 +50,22 @@ public class SanavarastoTest {
         assertNotNull(o);
         assertNotNull(lista);
     }
-        public void testHaeViisi() throws Exception {
-        varasto.hae();
-        Object[] o = varasto.sanakirja.annaAvainsanat();
-//        int maara = o.length;
-        int maara =varasto.sanakirja.sanasto.size();
-        assertEquals(maara,6);
+
+    public void testHaeUsempiOikea() throws Exception {
+        varasto.hae(5);
+        int maara = varasto.sanakirja.sanasto.size();
+        assertEquals(maara, 5);
+    }
+
+    public void testHaeUseampiVaara() throws Exception {
+        varasto.hae(5);
+        int maara = varasto.sanakirja.sanasto.size();
+        assertEquals((maara==6),false);
     }
 
     /**
      * Test of haeAnnetullaSanalla method, of class Sanavarasto.
+     *
      * @throws java.lang.Exception
      */
     @Test
@@ -67,7 +73,7 @@ public class SanavarastoTest {
         varasto.haeAnnetullaSanalla("öylätti");
         ArrayList lista = varasto.sanakirja.annaSanalista("öylätti");
         Object[] oletusarray = {"IT", "itä", "lätti", "lätti", "lätty", "työ", "täi", "täti", "yli", "yli-", "yliö", "yltä", "ylä-", "YT", "yö", "äly", "öylätti"};
-        Assert.assertArrayEquals(lista.toArray(),oletusarray);
+        Assert.assertArrayEquals(lista.toArray(), oletusarray);
     }
 
 }
