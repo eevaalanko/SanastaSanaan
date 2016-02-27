@@ -35,25 +35,25 @@
 
 :clock10: *5 tuntia*
 
-#12.2. 2016
+##12.2. 2016
 - projektin muokkailua
 - bugin selvittelyä
 
 :clock10: *5 tuntia*
 
-#17.2. 2016
+##17.2. 2016
 - testien korjailua pajassa
 
 :clock10: *2 tuntia*
 
-#19.2. 2016
+##19.2. 2016
 - javadocin luonti
 - checkstylen tarkastus
 - sekvenssikaavioiden luonti
 
 :clock10: *4 tuntia*
 
-#23.2. 2016
+##23.2. 2016
 - luokkien sanahaku ja JFpelialusta lisäys
 - nykysuomen sanaston sisältävän xml-filun lisäys
 - guin päivitys
@@ -62,7 +62,7 @@
 
 :clock10: *8 tuntia*
 
-#24.2. 2016
+##24.2. 2016
 - jar-tiedosto luotu, pom paivitetty, projekti tsekattu
 
 :clock10: *3 tuntia*
