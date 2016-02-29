@@ -25,10 +25,17 @@
             <scope>test</scope>
             <type>jar</type>
         </dependency>
-   
     </dependencies>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src/resources</directory>
+                <includes>
+                    <include>**/*.xml</include>  
+                </includes>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -112,7 +119,7 @@
                         </configuration>            
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>        
         </plugins>
     </build>
 </project>
