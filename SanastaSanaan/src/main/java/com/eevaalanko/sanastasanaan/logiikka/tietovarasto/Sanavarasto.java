@@ -33,7 +33,7 @@ public class Sanavarasto {
     /**
      * Xml-filun sijainti tiedostossa.
      */
-    private static final String file_location = "src/resources/sanavarasto/kotus-sanalista_v1.xml";
+    private static final String file_location = "sanavarasto/kotus-sanalista_v1.xml";
 
     /**
      * Konstruktori alustaa Sanakirjaluokan ilmentyman sanakirjan, jota
