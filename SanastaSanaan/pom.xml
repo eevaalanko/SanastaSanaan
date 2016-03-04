@@ -17,15 +17,7 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>com.eevaalanko.sanastasanaan</groupId>
-            <artifactId>SanastaSanaan</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>test</scope>
-            <type>jar</type>
-        </dependency>
     </dependencies>
-
     <build>
         <resources>
             <resource>
